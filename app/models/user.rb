@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 end
 
-#Database Authenticatable: предоставляет возможность входа в систему на основе зашифрованного и хранимого в базе данных пароля. Вход может быть выполнен посредством отправки POST-запроса или с помощью HTTP Basic Authentication.
+# Database Authenticatable: предоставляет возможность входа в систему на основе зашифрованного и хранимого в базе данных пароля. Вход может быть выполнен посредством отправки POST-запроса или с помощью HTTP Basic Authentication.
 # Omniauthable: добавляет поддержку Omniauth (github.com/intridea/omniauth).
 # Confirmable: позволяет отправлять письмо с инструкциями для подтверждения аккаунта, созданного во время регистрации.
 # Recoverable: позволяет восстанавливать забытый пароль. Отправляет инструкции по восстановлению на почту.
