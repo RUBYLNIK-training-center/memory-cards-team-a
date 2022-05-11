@@ -9,7 +9,7 @@
 
 <body>
 <% if user_signed_in? %>
-  <span>Здравствуйте, <%= current_user.email %></span>
+  <span>Здравствуйте, <%=  current_user.name  %> <%=  current_user.surname  %></span>
   <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
   <h1>Add Board</h1>
   <a href="Add Board"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
@@ -20,6 +20,11 @@
 <% else %>
   <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
 <% end %>
+
+
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <span>Здравствуйте, <%= current_user.email %></span>
+  <span>Здравствуйте, <%=  current_user.name  %> <%=  current_user.surname  %></span>
   <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
 
   <br>
