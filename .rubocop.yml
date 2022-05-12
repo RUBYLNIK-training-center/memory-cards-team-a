@@ -7,7 +7,6 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'bin/**/*'
-    - 'test/**/*'
     - 'Gemfile'
     - 'Gemfile.lock'
     - 'config.ru'
