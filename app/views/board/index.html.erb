@@ -2,16 +2,12 @@
 <html>
 <head>
   <title>MemoryCardTeamA</title>
-
-
-
 </head>
 
 <body>
 <% if user_signed_in? %>
   <span>Здравствуйте, <%=  current_user.name  %> <%=  current_user.surname  %></span>
   <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-
 
   <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
 
@@ -29,11 +25,10 @@
     </div>
   </div>
   </div>
+
 <% else %>
   <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
 <% end %>
-
-
 
 <%= yield %>
 

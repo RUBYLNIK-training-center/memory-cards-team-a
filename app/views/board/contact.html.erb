@@ -2,41 +2,30 @@
   <span>Здравствуйте, <%=  current_user.name  %> <%=  current_user.surname  %></span>
   <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
 
+  <% @contact_names = ['Dmitry','Sasha','Veaceslav','Alexey'] %>
+  <% @contact_family = ['Permyakou','Korchyk','Irizanov','Shparun'] %>
+  <% @contact_email = ['ddmitiyperm@gmail.com','aliaksandr.korchyk@gmail.com','slava.irizanov@gmail.com',
+                       'an.shparun@yandex.by'] %>
+
   <br>
   <table class="table table-dark table-striped">
     <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Firs Namet</th>
+      <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">email</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Dmitry</td>
-      <td>Permiakou</td>
-      <td>ddmitiyperm@gmail.com</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Sasha</td>
-      <td>Korchyk</td>
-      <td>aliaksandr.korchyk@gmail.com</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Veaceslav </td>
-      <td>Irizanov</td>
-      <td>slava.irizanov@gmail.com</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Alexey  </td>
-      <td>Shparun</td>
-      <td>an.shparun@yandex.by</td>
-    </tr>
+    <% @contact_names.each_with_index do |name, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td><%= name %></td>
+        <td><%= @contact_family[index] %></td>
+        <td><%= @contact_email[index] %></td>
+      </tr>
+    <% end %>
     </tbody>
   </table>
 

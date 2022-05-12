@@ -1,10 +1,13 @@
 class BoardController < ApplicationController
-  before_action :authenticate_user! # , except => [:show, :index]
+  before_action :authenticate_user!
+
   def index
-    render text: 'hello'
+
+    render text: 'index'
   end
 
   def contact
-    render text: 'hello'
+
+    render text: 'contact'
   end
 end
