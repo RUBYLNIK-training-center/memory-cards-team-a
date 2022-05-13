@@ -1,27 +1,29 @@
 <%= form_with(model: card) do |form| %>
   <% if card.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(card.errors.count, "error") %> prohibited this card from being saved:</h2>
-
-      <ul>
-        <% card.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+      <% card.errors.each do |error| %>
+        <div class="alert alert-danger"><%= error.full_message %></div>
+      <% end %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :question %>
-    <%= form.text_field :question %>
-  </div>
+  <div class="bg-light p-5 rounded mb-3">
+    <div class="row">
+      <div class="col-6 field">
+        <%= form.label :question %>
+        <%= form.text_area(:question, class: 'form-control', id: 'textarea') %>
+      </div>
 
-  <div class="field">
-    <%= form.label :answer %>
-    <%= form.text_field :answer %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="col-6 field">
+        <%= form.label :answer %>
+        <%= form.text_area(:answer, class: 'form-control', id: 'textarea') %>
+      </div>
+      
+
+      <div class="actions">
+        <%= form.submit(class: 'btn btn-primary mt-3') %>
+      </div>
+    </div>
   </div>
 <% end %>
