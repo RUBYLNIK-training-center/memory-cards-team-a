@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   # root 'board#index'
   get 'persons/profile', as: 'user_root'
 
+  resources :cards
 end
