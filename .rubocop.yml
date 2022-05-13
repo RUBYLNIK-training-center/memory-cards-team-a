@@ -7,7 +7,6 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'bin/**/*'
-    - 'test/**/*'
     - 'Gemfile'
     - 'Gemfile.lock'
     - 'config.ru'
@@ -16,3 +15,8 @@ Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/routing
+  Max: 50

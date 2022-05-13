@@ -1,0 +1,27 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: djdima
+  password: djdima
+  host: localhost
+  port: 5432
+
+
+development:
+  <<: *default
+  database: memory_card_team_a
+
+test:
+  <<: *default
+  database: memory_card_team_a_test
+
+production:
+  <<: *default
+  database: memory_card_team_a_production
+
+
+
