@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/board', to: 'board#index'
   get '/contact', to: 'board#contact'
   get '/card', to: 'board#card'
-  root 'board#index'
+  # root 'board#index'
   get 'persons/profile', as: 'user_root'
 
 end
