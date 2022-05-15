@@ -13,7 +13,7 @@
           <%= card.question %>
         </div>
         <div class="col-4">
-          <%= card.answer %>
+          <%= markdown(card.answer) %>
         </div>
         <div class="col-4">
           <%= link_to 'Show', card, class: "btn btn-secondary" %>

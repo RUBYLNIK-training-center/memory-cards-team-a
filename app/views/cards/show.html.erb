@@ -7,7 +7,7 @@
 
 <p>
   <strong>Answer:</strong>
-  <%= @card.answer %>
+  <%= markdown(@card.answer) %>
 </p>
 
 <%= link_to 'Edit', edit_card_path(@card) %> |
