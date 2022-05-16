@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= my_title(yield(:page_file)) %></title>
+    <title>Memory cards</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://kit.fontawesome.com/438a14ad7f.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-  <br>
 
-<!--  <p class="notice"><%#= notice %></p>-->
-<!--  <p class="alert"><%#= alert %></p>-->
+    <%= render "layouts/header" %>
 
+<<<<<<< HEAD
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="/board">Memory Card</a>
@@ -51,9 +49,11 @@
   </nav>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+=======
+>>>>>>> db9839e162496b7fc8d340df8f7598d1953267ff
     <div class="container">
       <% if notice %>
-        <%= render 'layouts/alerts' %>
+      <%= render 'layouts/alerts' %>
       <% end %>
 
       <%= yield %>
