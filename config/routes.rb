@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   end
   get '/board', to: 'board#index'
   get '/contact', to: 'board#contact'
-  get '/card', to: 'board#card'
   root 'board#index'
   # get 'persons/profile', as: 'user_root'
 
