@@ -1,12 +1,15 @@
-<p>
-  <strong>Question:</strong>
-  <%= @card.question %>
-</p>
+<div class="bg-light p-5 rounded mb-3">
+  <h1 type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <%= @card.question %>
+  </h1>
 
-<p>
-  <strong>Answer:</strong>
-  <%= markdown(@card.answer) %>
-</p>
+  <div class="collapse" id="collapseExample">
+    <div class="card">
+      <div class="card-body">
+        <%= markdown(@card.answer) %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_card_path(@card) %> |
-<%= link_to 'Back', cards_path %>
+<%= link_to 'Back', cards_path, class: "btn btn-outline-secondary mt-3" %>
