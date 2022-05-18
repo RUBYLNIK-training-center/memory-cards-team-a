@@ -1,23 +1,23 @@
 <h1 class="text-center">Cards</h1>
 
+  <%= link_to 'New Card', new_board_card_path(@board), class: "btn btn-primary mb-3" %>
+  <%= link_to 'Back', boards_path, class: "btn btn-outline-secondary mb-3" %>
 
-  <div class="mb-3"><%= link_to 'New Card', new_board_card_path(@board), class: "btn btn-primary" %></div>
+<% @cards.each do |card| %>
 
-  <% @cards.each do |card| %>
-
-    <div class="bg-light p-5 rounded mb-3">
-      <div class="row">
-        <div class="col-4">
-          <%= card.question %>
-        </div>
-        <div class="col-4">
-          <%= markdown(card.answer) %>
-        </div>
-        <div class="col-4">
-          <%= link_to 'Show', board_card_path(@board, card), class: "btn btn-secondary" %>
-          <%= link_to 'Edit', edit_board_card_path(@board, card), class: "btn btn-primary" %>
-          <%= link_to 'Destroy', [@board, card], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-        </div>
+  <div class="bg-light p-5 rounded mb-3">
+    <div class="row">
+      <div class="col-4">
+        <%= card.question %>
+      </div>
+      <div class="col-4">
+        <%= markdown(card.answer) %>
+      </div>
+      <div class="col-4">
+        <%= link_to 'Show', board_card_path(@board, card), class: "btn btn-secondary" %>
+        <%= link_to 'Edit', edit_board_card_path(@board, card), class: "btn btn-primary" %>
+        <%= link_to 'Destroy', [@board, card], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
