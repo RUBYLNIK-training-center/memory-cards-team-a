@@ -1,7 +1,7 @@
 <h1 class="text-center">Cards</h1>
 
 
-  <div class="mb-3"><%= link_to 'New Card', new_card_path, class: "btn btn-primary" %></div>
+  <div class="mb-3"><%= link_to 'New Card', new_board_card_path(@board), class: "btn btn-primary" %></div>
 
   <% @cards.each do |card| %>
 
@@ -14,9 +14,9 @@
           <%= markdown(card.answer) %>
         </div>
         <div class="col-4">
-          <%= link_to 'Show', card, class: "btn btn-secondary" %>
-          <%= link_to 'Edit', edit_card_path(card), class: "btn btn-primary" %>
-          <%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <%= link_to 'Show', board_card_path(@board, card), class: "btn btn-secondary" %>
+          <%= link_to 'Edit', edit_board_card_path(@board, card), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', [@board, card], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         </div>
       </div>
     </div>

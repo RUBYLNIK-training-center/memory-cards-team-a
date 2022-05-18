@@ -5,4 +5,5 @@
   <%= @board.name %>
 </p>
 
+<%= link_to 'Show Cards', board_cards_path(@board) %> |
 <%= link_to 'Back', boards_path, class: "btn btn-outline-secondary mt-3" %>
