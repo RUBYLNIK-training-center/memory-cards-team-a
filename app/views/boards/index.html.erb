@@ -1,0 +1,28 @@
+<h1>Boards</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boards.each do |board| %>
+      <% if board.user == current_user %>
+        <tr>
+          <td><%= board.name %></td>
+          <td><%= board.user_id %></td>
+          <td><%= link_to 'Show', board, class: "text-decoration-none" %></td>
+          <td><%= link_to 'Edit', edit_board_path(board), class: "text-decoration-none" %></td>
+          <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-decoration-none" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Board', new_board_path, class: "btn btn-primary" %>

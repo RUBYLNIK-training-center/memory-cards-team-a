@@ -1,0 +1,25 @@
+<%= form_with(model: board) do |form| %>
+  <% if board.errors.any? %>
+    <div id="error_explanation">
+      <% board.errors.each do |error| %>
+        <div class="alert alert-danger"><%= error.full_message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="bg-light p-5 rounded mb-3">
+    <%= form.label :name %>
+    <div class="field">
+      <%= form.text_field(:name, class: "form-control") %>
+    </div>
+
+    <div class="field d-none">
+      <%= form.label :user_id %>
+      <%= form.number_field :user_id, id: :board_user_id, value: current_user.id %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit(class: 'btn btn-primary mt-3') %>
+    </div>
+  </div>
+<% end %>
