@@ -10,8 +10,6 @@
           <%= link_to "Boards" , boards_path, class:"nav-link px-2 text-white" %>
         </ul>
 
-        
-
         <div class="text-end">
           <% if user_signed_in? %>
             Hi, <%= current_user.name %> <%= current_user.surname %>
