@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_board
+  before_action :board
   before_action :set_card, only: %i[show edit update destroy]
   before_action :correct_user
 
@@ -26,7 +26,7 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       if @card.save
-        format.html { redirect_to board_cards_path(@board), notice: "Card was successfully created." }
+        format.html { redirect_to board_cards_path(@board), notice: 'Card was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -60,7 +60,7 @@ class CardsController < ApplicationController
 
   private
 
-  def get_board
+  def board
     @board = Board.find(params[:board_id])
   end
 
