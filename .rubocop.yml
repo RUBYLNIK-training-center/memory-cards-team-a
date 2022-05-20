@@ -10,6 +10,7 @@ AllCops:
     - 'Gemfile'
     - 'Gemfile.lock'
     - 'config.ru'
+    - 'spec/routing/instruction_spec.rb'
 
 Style/Documentation:
   Enabled: false

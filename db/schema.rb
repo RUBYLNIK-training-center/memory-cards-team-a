@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 2022_05_19_181030) do
     t.string "answer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "board_id"
+    t.index ["board_id"], name: "index_cards_on_board_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,4 @@
-<div class="bg-light p-5 rounded mb-3">
+<div class="bg-light p-5 rounded mt-3">
   <p class="fs-3 fw-bolder" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     <%= @card.question %>
   </p>
@@ -12,4 +12,4 @@
   </div>
 </div>
 
-<%= link_to 'Back', cards_path, class: "btn btn-outline-secondary mt-3" %>
+<%= link_to 'Back', board_cards_path(@board), class: "btn btn-outline-secondary mt-3" %>

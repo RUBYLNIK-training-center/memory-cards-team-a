@@ -1,9 +1,12 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :board
   before_action :set_card, only: %i[show edit update destroy]
+  before_action :correct_user
 
   # GET /cards
   def index
-    @cards = Card.all
+    @cards = @board.cards
   end
 
   # GET /cards/1
@@ -11,7 +14,7 @@ class CardsController < ApplicationController
 
   # GET /cards/new
   def new
-    @card = Card.new
+    @card = @board.cards.build
   end
 
   # GET /cards/1/edit
@@ -19,11 +22,11 @@ class CardsController < ApplicationController
 
   # POST /cards
   def create
-    @card = Card.new(card_params)
+    @card = @board.cards.build(card_params)
 
     respond_to do |format|
       if @card.save
-        format.html { redirect_to card_url(@card), notice: 'Card was successfully created.' }
+        format.html { redirect_to board_cards_path(@board), notice: 'Card was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -34,7 +37,7 @@ class CardsController < ApplicationController
   def update
     respond_to do |format|
       if @card.update(card_params)
-        format.html { redirect_to card_url(@card), notice: 'Card was successfully updated.' }
+        format.html { redirect_to board_card_path(@board), notice: 'Card was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -46,15 +49,24 @@ class CardsController < ApplicationController
     @card.destroy
 
     respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
+      format.html { redirect_to board_cards_path(@board), notice: 'Card was successfully destroyed.' }
     end
+  end
+
+  def correct_user
+    @cardz = current_user.boards.find_by(id: params[:board_id])
+    redirect_to boards_path, notice: 'Not Authorized to See this Board' if @cardz.nil?
   end
 
   private
 
+  def board
+    @board = Board.find(params[:board_id])
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_card
-    @card = Card.find(params[:id])
+    @card = @board.cards.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
