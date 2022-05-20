@@ -11,7 +11,7 @@ RSpec.describe Card, type: :model do
   end
 
   let(:card) do
-    Card.create(question: 'Is it test?', answer: 'yep', board_id: board.id)
+    described_class.create(question: 'Is it test?', answer: 'yep', board_id: board.id)
   end
 
   it 'is valid with valid attributes' do
