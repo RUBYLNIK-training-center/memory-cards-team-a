@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   end
   resources :cards
   get '/instructions', to: 'instructions#manual'
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+    end
 end
