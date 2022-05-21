@@ -15,11 +15,15 @@ gem 'rubocop-rails', '>= 2.14.2'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'redcarpet'
 gem 'coderay'
+gem 'activeadmin'
+gem 'active_skin'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop-rspec', require: false
+  gem 'pry', '~> 0.13.1'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -27,7 +31,6 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
-  gem 'pry', '~> 0.13.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

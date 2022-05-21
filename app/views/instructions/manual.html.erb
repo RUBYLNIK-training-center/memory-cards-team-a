@@ -1,0 +1,25 @@
+<p class="text-center fs-1">Instructions</p>
+
+<p class="text-center fs-2">Memory card  is a learning service that will help you learn new things faster</p>
+
+<% @instruction_description = ['Login/Sign in',
+                               'Go to Board and click New Board and create new Board',
+                               'Click show and create new Card'] %>
+<% @instruction_image = ['instructions/login.jpg',
+                         'instructions/link.jpg',
+                         'instructions/create.png'] %>
+
+<div class="row text-center">
+  <% @instruction_description .each_with_index do |name, index| %>
+  <div class="col-sm-4">
+    <div class="card h-100 text-white bg-dark mb-3" style="width: 18rem;">
+      <%= image_tag @instruction_image[index], alt: 'login', class: "card-img-top", height:250 %>
+      <div class="card-body">
+        <h5 class="card-title">Step <%= index+1 %></h5>
+        <p class="card-text"><%= @instruction_description[index] %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
