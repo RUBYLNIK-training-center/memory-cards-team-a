@@ -19,6 +19,10 @@ RSpec.describe CardsController, type: :routing do
       expect(get: "/boards/#{board.id}/cards").to route_to('cards#index', board_id: board.id.to_s)
     end
 
+    it 'routes to #learn' do
+      expect(get: "/boards/#{board.id}/learning").to route_to('cards#learn', board_id: board.id.to_s)
+    end
+
     it 'routes to #new' do
       expect(get: "/boards/#{board.id}/cards/new").to route_to('cards#new', board_id: board.id.to_s)
     end
