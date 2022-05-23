@@ -11,8 +11,8 @@ RSpec.describe Board, type: :model do
   end
 
   describe 'associations' do
-    it { should belong_to(:user) }
-    it { should have_many(:cards) }
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:cards) }
   end
 
   describe 'validations' do

@@ -15,7 +15,7 @@ RSpec.describe Card, type: :model do
   end
 
   describe 'association' do
-    it { should belong_to(:board) }
+    it { is_expected.to belong_to(:board) }
   end
 
   describe 'validations' do
