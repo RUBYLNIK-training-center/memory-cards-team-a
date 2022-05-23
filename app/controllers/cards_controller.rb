@@ -4,6 +4,15 @@ class CardsController < ApplicationController
   before_action :set_card, only: %i[show edit update destroy]
   before_action :correct_user
 
+  def learn
+    @cards = @board.cards
+    if @cards.first.nil?
+      redirect_to board_cards_path(@board), notice: 'First, create a card.'
+    else
+      render 'learn/learn'
+    end
+  end
+
   # GET /cards
   def index
     @cards = @board.cards

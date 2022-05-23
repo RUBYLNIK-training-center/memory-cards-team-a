@@ -1,0 +1,32 @@
+<h1>Learning page</h1>
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-keyboard="true" data-bs-interval="false" data-bs-touch="true">
+  <div class="carousel-inner">
+    <% @cards.each do |card| %>
+      <div class="carousel-item bg-light p-5 rounded mt-3">
+        <p class="fs-3 fw-bolder" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <%= card.question %>
+        </p>
+
+        <div class="collapse" id="collapseExample">
+          <div class="card text-dark bg-light">
+            <div class="card-body">
+              <%= markdown(card.answer) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"></button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"></button>
+</div>
+
+<script>
+  document.addEventListener("turbolinks:load", function() {
+    const el = document.querySelector("div.container div.carousel div.carousel-inner div.carousel-item");
+    el.classList.add("active");
+  });
+</script>
+
+<%= link_to 'Back', boards_path, class: "btn btn-outline-secondary mt-3" %>
