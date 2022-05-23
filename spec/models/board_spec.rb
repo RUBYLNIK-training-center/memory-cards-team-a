@@ -10,12 +10,19 @@ RSpec.describe Board, type: :model do
                 password_confirmation: '123456')
   end
 
-  it 'is valid with valid attributes' do
-    expect(board).to be_valid
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:cards) }
   end
 
-  it 'is not valid without a name' do
-    board.name = nil
-    expect(board).not_to be_valid
+  describe 'validations' do
+    it 'is valid with valid attributes' do
+      expect(board).to be_valid
+    end
+
+    it 'is not valid without a name' do
+      board.name = nil
+      expect(board).not_to be_valid
+    end
   end
 end
