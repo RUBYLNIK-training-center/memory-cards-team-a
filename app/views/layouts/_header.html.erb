@@ -13,7 +13,7 @@
 
         <div class="text-end">
           <% if user_signed_in? %>
-            Hi, <%= current_user.name %> <%= current_user.surname %>
+            <%= current_user.name.empty? ? current_user.email : 'Hi, ' + current_user.name + " " + current_user.surname %>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
             <%= link_to "Edit Profile", edit_user_registration_path, class:"btn btn-warning" %>
           <% else %>
