@@ -2,3 +2,13 @@ ru:
   welcome:
     index:
       welcomes: "Привет, Мир"
+      boards: "Доска"
+  layouts:
+    _header:
+      memory: "Карточки"
+      boards: "Доски"
+      emanual: "Документация"
+      signin: "Вход"
+      signout: "Выход"
+      signup: "Регистрация"
+      editprofile: "Профиль"

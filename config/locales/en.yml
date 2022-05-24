@@ -2,4 +2,15 @@ en:
   welcome:
     index:
       welcomes: "Hello World"
+      boards: "Boards"
+  layouts:
+    _header:
+      memory: "Memory cards"
+      boards: "Boards"
+      emanual: "eManual"
+      signin: "Sign in"
+      signout: "Sing Out"
+      signup: "Sign-up"
+      editprofile: "Edit Profile"
+
 

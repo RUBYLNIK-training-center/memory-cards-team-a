@@ -6,9 +6,9 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <%= link_to "Memory cards" , root_path, class:"nav-link px-2 text-secondary" %>
-          <%= link_to "Boards" , boards_path, class:"nav-link px-2 text-white" %>
-          <%= link_to "eManual" , instructions_path, class:"nav-link px-2 text-white" %>
+          <%= link_to t("layouts._header.memory") , root_path, class:"nav-link px-2 text-secondary" %>
+          <%= link_to t("layouts._header.boards") , boards_path, class:"nav-link px-2 text-white" %>
+          <%= link_to t("layouts._header.emanual") , instructions_path, class:"nav-link px-2 text-white" %>
           <%#= link_to "English" , root_path(locale :en), class:"nav-link px-2 text-white" %>
           <%#= link_to "Русский" , root_path(locale :ru), class:"nav-link px-2 text-white" %>
         </ul>
@@ -16,11 +16,11 @@
         <div class="text-end">
           <% if user_signed_in? %>
             Hi, <%= current_user.name %> <%= current_user.surname %>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
-            <%= link_to "Edit Profile", edit_user_registration_path, class:"btn btn-warning" %>
+            <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
+            <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
           <% else %>
-            <%= link_to "Sign In", new_user_session_path, class:"btn btn-outline-light me-2" %>
-            <%= link_to "Sign-up", new_user_registration_path, class:"btn btn-warning" %>     
+            <%= link_to t("layouts._header.signin"), new_user_session_path, class:"btn btn-outline-light me-2" %>
+            <%= link_to t("layouts._header.signup"), new_user_registration_path, class:"btn btn-warning" %>
           <% end %>
         </div>
       </div>
