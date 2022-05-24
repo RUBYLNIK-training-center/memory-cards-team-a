@@ -1,6 +1,6 @@
 <h2><%= t('welcome.index.welcomes') %></h2>
 <p>
-  The time is now: <%= Time.now %>
+  <%= t"welcome.index.timenow" %> <%= l(Time.now, format: :long) %>
 </p>
 
 <%= link_to t('welcome.index.boards'), boards_path, class: "btn btn-outline-dark" %>

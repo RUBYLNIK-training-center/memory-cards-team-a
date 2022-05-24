@@ -1,8 +1,22 @@
 en:
+#  activerecord:
+#    attributes:
+#      board:
+#        name: "hi"
+  boards:
+    index:
+      name: "Name"
+      user: "User"
+      learn: "Learn Cards"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      newboard: "New Board"
   welcome:
     index:
       welcomes: "Hello World"
       boards: "Boards"
+      timenow: "The time is now: "
   layouts:
     _header:
       memory: "Memory cards"
