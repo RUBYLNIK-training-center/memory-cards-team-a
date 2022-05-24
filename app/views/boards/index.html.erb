@@ -14,6 +14,7 @@
         <tr>
           <td><%= board.name %></td>
           <td><%= board.user_id %></td>
+          <td><%= link_to 'Learn Cards', board_learning_path(board), class: "text-decoration-none" %></td>
           <td><%= link_to 'Show', board_cards_path(board), class: "text-decoration-none" %></td>
           <td><%= link_to 'Edit', edit_board_path(board), class: "text-decoration-none" %></td>
           <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-decoration-none" %></td>
