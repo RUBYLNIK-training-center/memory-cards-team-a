@@ -25,7 +25,7 @@ ru:
       timenow: "Время сейчас: "
   layouts:
     _header:
-      memory: "Карточки"
+      memory: "Memory Card"
       boards: "Доски"
       emanual: "Документация"
       signin: "Вход"
