@@ -1,33 +1,37 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  en: "English"
+  ru: "Russian"
+  instructions:
+    manual:
+      doc: "Instructions"
+      description: "Memory card  is a learning service that will help you learn new things faster"
+      login: "Login/Sign in"
+      board: "Go to Board and click New Board and create new Board"
+      card: "Click show and create new Card"
+      step: "Step"
+  boards:
+    index:
+      name: "Name"
+      user: "User"
+      learn: "Learn Cards"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      newboard: "New Board"
+  welcome:
+    index:
+      welcomes: "Hello World"
+      boards: "Boards"
+      timenow: "The time is now: "
+  layouts:
+    _header:
+      memory: "Memory cards"
+      boards: "Boards"
+      emanual: "eManual"
+      signin: "Sign in"
+      signout: "Sing Out"
+      signup: "Sign-up"
+      editprofile: "Edit Profile"
+      hello: "Hi, "
+
+
