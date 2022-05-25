@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :boards do
     resources :cards
+    get '/learning', to: 'cards#learn'
   end
   devise_for :users
   devise_scope :user do
