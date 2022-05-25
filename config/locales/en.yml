@@ -1,8 +1,14 @@
 en:
-#  activerecord:
-#    attributes:
-#      board:
-#        name: "hi"
+  en: "English"
+  ru: "Russian"
+  instructions:
+    manual:
+      doc: "Instructions"
+      description: "Memory card  is a learning service that will help you learn new things faster"
+      login: "Login/Sign in"
+      board: "Go to Board and click New Board and create new Board"
+      card: "Click show and create new Card"
+      step: "Step"
   boards:
     index:
       name: "Name"
@@ -26,5 +32,6 @@ en:
       signout: "Sing Out"
       signup: "Sign-up"
       editprofile: "Edit Profile"
+      hello: "Hi, "
 
 

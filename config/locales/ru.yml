@@ -1,8 +1,14 @@
 ru:
-  #  activerecord:
-  #    attributes:
-  #      board:
-  #        name: "hi"
+  en: "Английский"
+  ru: "Русский"
+  instructions:
+    manual:
+      doc: "Инструкция"
+      description: "Memory card  это обучающий сервис, который поможет изучить некоторые вещи намного быстрее"
+      login: "Авторизация"
+      board: "Перейти по ссылке Доска, создать новую доску"
+      card: "Нажми показать и созать новую карточку"
+      step: "Шаг"
   boards:
     index:
       name: "Имя доски"
@@ -26,3 +32,4 @@ ru:
       signout: "Выход"
       signup: "Регистрация"
       editprofile: "Профиль"
+      hello: "Привет, "

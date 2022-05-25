@@ -9,13 +9,32 @@
           <%= link_to t("layouts._header.memory") , root_path, class:"nav-link px-2 text-secondary" %>
           <%= link_to t("layouts._header.boards") , boards_path, class:"nav-link px-2 text-white" %>
           <%= link_to t("layouts._header.emanual") , instructions_path, class:"nav-link px-2 text-white" %>
-          <%#= link_to "English" , root_path(locale :en), class:"nav-link px-2 text-white" %>
-          <%#= link_to "Русский" , root_path(locale :ru), class:"nav-link px-2 text-white" %>
         </ul>
 
         <div class="text-end">
+
+              <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white',
+                          data: {"bs-toggle": 'dropdown'} do %>
+                <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
+                <%= t I18n.locale %>
+              <% end %>
+
+              <div class="dropdown-menu">
+                <% I18n.available_locales.each do |locale| %>
+                  <li>
+                    <% if I18n.locale == locale %>
+                      <%= tag.span t(locale), class: 'dropdown-item' %>
+                    <% else %>
+                      <%= link_to t(locale), url_for(locale: locale),
+                                  class: 'dropdown-item' %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </div>
+            </div>
+
           <% if user_signed_in? %>
-            <%= current_user.name.empty? ? current_user.email : 'Hi, ' + current_user.name + " " + current_user.surname %>
+            <%= current_user.name.empty? ? current_user.email : t("layouts._header.hello") + current_user.name + " " + current_user.surname %>
             <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
             <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
           <% else %>

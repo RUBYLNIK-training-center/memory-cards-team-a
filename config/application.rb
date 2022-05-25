@@ -22,7 +22,7 @@ Bundler.require(*Rails.groups)
 module MemoryCardTeamA
   class Application < Rails::Application
     config.i18n.available_locales = %i[ru en]
-    config.i18n.default_locale = :ru
+    config.i18n.default_locale = :en
     config.load_defaults 6.1
     config.generators.system_tests = nil
   end
