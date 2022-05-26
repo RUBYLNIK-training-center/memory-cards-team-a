@@ -17,6 +17,9 @@ Rails.application.routes.draw do
         patch 'update_password'
       end
     end
+    get '/404', to: "errors#not_found"
+    get '/422', to: "errors#unacceptable"
+    get '/500', to: "errors#internal_error"
   end
   resources :imports
 end
