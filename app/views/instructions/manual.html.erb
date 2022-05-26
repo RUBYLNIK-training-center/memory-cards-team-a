@@ -1,10 +1,10 @@
-<p class="text-center fs-1">Instructions</p>
+<p class="text-center fs-1"><%= t("instructions.manual.doc") %></p>
 
-<p class="text-center fs-2">Memory card  is a learning service that will help you learn new things faster</p>
+<p class="text-center fs-2"><%= t("instructions.manual.description") %></p>
 
-<% @instruction_description = ['Login/Sign in',
-                               'Go to Board and click New Board and create new Board',
-                               'Click show and create new Card'] %>
+<% @instruction_description = [t('instructions.manual.login'),
+                               t('instructions.manual.board'),
+                               t('instructions.manual.card'),] %>
 <% @instruction_image = ['instructions/login.jpg',
                          'instructions/link.jpg',
                          'instructions/create.png'] %>
@@ -13,9 +13,9 @@
   <% @instruction_description .each_with_index do |name, index| %>
   <div class="col-sm-4">
     <div class="card h-100 text-white bg-dark mb-3" style="width: 18rem;">
-      <%= image_tag @instruction_image[index], alt: 'login', class: "card-img-top", height:250 %>
+      <%= image_tag @instruction_image[index], alt: 'img', class: "card-img-top", height:250 %>
       <div class="card-body">
-        <h5 class="card-title">Step <%= index+1 %></h5>
+        <h5 class="card-title"><%= t("instructions.manual.step") %> <%= index+1 %></h5>
         <p class="card-text"><%= @instruction_description[index] %></p>
       </div>
     </div>
