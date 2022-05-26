@@ -6,8 +6,9 @@ RSpec.describe User, type: :model do
                         password_confirmation: '123456')
   end
 
-  describe 'association' do
+  describe 'associations' do
     it { is_expected.to have_many(:boards) }
+    it { is_expected.to have_many(:imports) }
   end
 
   describe 'validations' do

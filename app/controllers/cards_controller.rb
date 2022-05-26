@@ -62,12 +62,12 @@ class CardsController < ApplicationController
     end
   end
 
+  private
+
   def correct_user
     @cardz = current_user.boards.find_by(id: params[:board_id])
-    redirect_to boards_path, notice: 'Not Authorized to See this Board' if @cardz.nil?
+    redirect_to boards_path, notice: 'Not Authorized to See this Card' if @cardz.nil?
   end
-
-  private
 
   def board
     @board = Board.find(params[:board_id])

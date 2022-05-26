@@ -40,6 +40,11 @@ GEM
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
     active_skin (0.0.13)
+    active_storage_validations (0.9.8)
+      activejob (>= 5.2.0)
+      activemodel (>= 5.2.0)
+      activestorage (>= 5.2.0)
+      activesupport (>= 5.2.0)
     activeadmin (2.13.0)
       arbre (~> 1.2, >= 1.2.1)
       formtastic (>= 3.1, < 5.0)
@@ -301,6 +306,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_skin
+  active_storage_validations
   activeadmin
   bootsnap (>= 1.4.4)
   byebug
