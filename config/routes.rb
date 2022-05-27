@@ -12,14 +12,15 @@ Rails.application.routes.draw do
       get '/users/sign_out' => 'devise/sessions#destroy'
     end
     get '/instructions', to: 'instructions#manual'
+    get '/404', to: "errors#not_found"
+    get '/422', to: "errors#unacceptable"
+    get '/500', to: "errors#internal_error"
     resource :user, only: [:edit] do
       collection do
         patch 'update_password'
       end
     end
-    get '/404', to: "errors#not_found"
-    get '/422', to: "errors#unacceptable"
-    get '/500', to: "errors#internal_error"
+
   end
   resources :imports
 end
