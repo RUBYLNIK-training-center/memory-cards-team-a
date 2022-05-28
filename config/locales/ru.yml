@@ -1,0 +1,35 @@
+ru:
+  en: "Английский"
+  ru: "Русский"
+  instructions:
+    manual:
+      doc: "Инструкция"
+      description: "Memory card  это обучающий сервис, который поможет изучить некоторые вещи намного быстрее"
+      login: "Авторизация"
+      board: "Перейти по ссылке Доска, создать новую доску"
+      card: "Нажми показать и созать новую карточку"
+      step: "Шаг"
+  boards:
+    index:
+      name: "Имя доски"
+      user: "Id пользователя"
+      learn: "Изучение карточки"
+      show: "Показать"
+      edit: "Редактировать"
+      destroy: "Удалить"
+      newboard: "Новая доска"
+  welcome:
+    index:
+      welcomes: "Привет, Мир"
+      boards: "Доска"
+      timenow: "Время сейчас: "
+  layouts:
+    _header:
+      memory: "Memory Card"
+      boards: "Доски"
+      emanual: "Документация"
+      signin: "Вход"
+      signout: "Выход"
+      signup: "Регистрация"
+      editprofile: "Профиль"
+      hello: "Привет, "
