@@ -9,6 +9,7 @@
           <%= link_to t("layouts._header.memory") , root_path, class:"nav-link px-2 text-secondary" %>
           <%= link_to t("layouts._header.boards") , boards_path, class:"nav-link px-2 text-white" %>
           <%= link_to t("layouts._header.emanual") , instructions_path, class:"nav-link px-2 text-white" %>
+          <%= link_to "Sign in with Github", user_github_omniauth_authorize_path %>
         </ul>
 
         <div class="text-end">
