@@ -19,6 +19,11 @@ gem 'activeadmin'
 gem 'active_skin'
 gem 'active_storage_validations'
 gem 'rails-i18n'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
