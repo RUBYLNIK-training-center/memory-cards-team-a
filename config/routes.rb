@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'omniauth'}
   scope "(:locale)",locale: /#{I18n.available_locales.join("|")}/ do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -7,7 +8,9 @@ Rails.application.routes.draw do
     resources :cards
     get '/learning', to: 'cards#learn'
   end
-  devise_for :users, controllers: {registrations: 'registrations'}
+  devise_for :users, controllers: {registrations: 'registrations'},skip: [:omniauth_callbacks]
+  # devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'omniauth'}
+
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
