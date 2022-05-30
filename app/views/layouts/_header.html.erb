@@ -9,7 +9,8 @@
           <%= link_to t("layouts._header.memory") , root_path, class:"nav-link px-2 text-secondary" %>
           <%= link_to t("layouts._header.boards") , boards_path, class:"nav-link px-2 text-white" %>
           <%= link_to t("layouts._header.emanual") , instructions_path, class:"nav-link px-2 text-white" %>
-          <%= link_to "Sign in with Github", user_github_omniauth_authorize_path %>
+          <%#= link_to "Sign in with Github", user_github_omniauth_authorize_path, method: :post %>
+          <%#= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post %>
         </ul>
 
         <div class="text-end">
@@ -35,7 +36,7 @@
             </div>
 
           <% if user_signed_in? %>
-            <%= current_user.name.empty? ? current_user.email : t("layouts._header.hello") + current_user.name + " " + current_user.surname %>
+            <%= current_user.name.try(:empty?) ? current_user.email : t("layouts._header.hello") + [current_user.name,current_user.surname].map(&:to_s).join(' ')  %>
             <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
             <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
           <% else %>
