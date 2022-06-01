@@ -3,6 +3,7 @@ class CardsController < ApplicationController
   before_action :board
   before_action :set_card, only: %i[show edit update destroy]
   before_action :correct_user
+  skip_before_action :verify_authenticity_token
 
   def learn
     @cards = @board.cards
@@ -80,6 +81,6 @@ class CardsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def card_params
-    params.require(:card).permit(:question, :answer)
+    params.require(:card).permit(:question, :answer, :confidence_level)
   end
 end

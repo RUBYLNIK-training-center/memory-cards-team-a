@@ -8,8 +8,40 @@
       <div class="card-body">
         <%= markdown(@card.answer) %>
       </div>
+      <div>
+        <div class="d-flex justify-content-center mb-2">How well did I know it?</div>
+        <div class="d-flex justify-content-center">
+          <button onclick="myFunction(1)" type="button" class="btn btn-light">1</button>
+          <button onclick="myFunction(2)" type="button" class="btn btn-secondary ms-2">2</button>
+          <button onclick="myFunction(3)" type="button" class="btn btn-warning ms-2">3</button>
+          <button onclick="myFunction(4)" type="button" class="btn btn-danger ms-2">4</button>
+          <button onclick="myFunction(5)" type="button" class="btn btn-warning ms-2">5</button>
+        </div>
+        <div class="d-flex justify-content-center mb-1">Current level of confidence: <%= @card.confidence_level %></div>
+      </div>
     </div>
   </div>
 </div>
 
 <%= link_to 'Back', board_cards_path(@board), class: "btn btn-outline-secondary mt-3" %>
+
+<script>
+function myFunction(num) {
+  let level = document.getElementsByClassName('d-flex justify-content-center mb-1')[0];
+  let confidence_level = ['undefined', 'very_bad', 'bad', 'medium', 'good', 'perfect'];
+  let http = new XMLHttpRequest();
+  let params = 'confidence_level=' + confidence_level[num];
+  http.open('PATCH', '', true);
+
+  //Send the proper header information along with the request
+  http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+  http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 204) {
+      
+      level.innerText = 'Current level of confidence: ' + http.responseText;
+    }
+  }
+  http.send(params);
+}
+</script>
