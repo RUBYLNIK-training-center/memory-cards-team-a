@@ -16,7 +16,15 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'activeadmin'
 gem 'active_skin'
+gem 'active_storage_validations'
 gem 'rails-i18n'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
+gem "omniauth-rails_csrf_protection"
+gem "google-cloud-storage", "~> 1.8", require: false
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

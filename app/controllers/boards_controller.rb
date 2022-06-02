@@ -45,12 +45,12 @@ class BoardsController < ApplicationController
     end
   end
 
+  private
+
   def correct_user
     @board = current_user.boards.find_by(id: params[:id])
     redirect_to boards_path, notice: 'Not Authorized to See this Board' if @board.nil?
   end
-
-  private
 
   def set_board
     @board = Board.find(params[:id])

@@ -25,5 +25,6 @@ module MemoryCardTeamA
     config.i18n.default_locale = :en
     config.load_defaults 6.1
     config.generators.system_tests = nil
+    config.exceptions_app = self.routes
   end
 end
