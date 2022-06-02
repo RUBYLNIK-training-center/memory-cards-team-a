@@ -51,7 +51,7 @@
     }
   }
 
-  document.addEventListener("turbolinks:load", function() {
+  window.addEventListener('load', function(event) {
     if (document.querySelector("div.container div.carousel div.carousel-inner div.carousel-item") != null) {
       const el = document.querySelector("div.container div.carousel div.carousel-inner div.carousel-item");
       el.classList.add("active");
