@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2022_05_29_175213) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "board_id"
+    t.integer "confidence_level", default: 0
     t.index ["board_id"], name: "index_cards_on_board_id"
   end
 
