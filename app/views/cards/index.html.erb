@@ -15,9 +15,46 @@
       </div>
       <div class="col-4">
         <%= link_to 'Show', board_card_path(@board, card), class: "btn btn-secondary" %>
-        <%= link_to 'Edit', edit_board_card_path(@board, card), class: "btn btn-primary" %>
+        <button onclick="funcionForId(this)" type="button" class="btn btn-primary card-id" data-bs-toggle="modal" data-bs-target="#exampleModal" value='<%= card.id %>'>
+          Edit
+        </button>
         <%= link_to 'Destroy', [@board, card], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       </div>
     </div>
   </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Card #</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= render 'form', card: @cards[1] %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
+
+
+
+
+<script>
+  function funcionForId(card) {
+    let currrent_card_id = card.value;
+    document.getElementById('exampleModalLabel').innerText = 'Edit Card # ' + currrent_card_id;
+    let path = window.location.pathname;
+    let board_id = parseInt(path.replace(/[^\d]/g, ''))
+    console.log(currrent_card_id, board_id);
+  }
+</script>
+
+<!-- Использовать ajax как делал до этого без render form (действие только на карточку) -->
