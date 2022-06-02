@@ -4,11 +4,9 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
     root 'welcome#index'
     resources :boards do
-      patch '/cards/:id', to: 'ajax#change_confidence_level'
+      
       resources :cards
-      
       get '/learning', to: 'cards#learn'
-      
     end
     devise_for :users
     devise_scope :user do
@@ -20,5 +18,6 @@ Rails.application.routes.draw do
         patch 'update_password'
       end
     end
+    patch '/cards/:id', to: 'ajax#change_confidence_level'
   end
 end

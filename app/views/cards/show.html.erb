@@ -26,22 +26,24 @@
 <%= link_to 'Back', board_cards_path(@board), class: "btn btn-outline-secondary mt-3" %>
 
 <script>
-function myFunction(num) {
-  let level = document.getElementsByClassName('d-flex justify-content-center mb-1')[0];
-  let confidence_level = ['undefined', 'very_bad', 'bad', 'medium', 'good', 'perfect'];
-  let http = new XMLHttpRequest();
-  let params = 'confidence_level=' + confidence_level[num];
-  http.open('PATCH', '', true);
+  function myFunction(num) {
+    let level = document.getElementsByClassName('d-flex justify-content-center mb-1')[0];
+    let confidence_level = ['undefined', 'very_bad', 'bad', 'medium', 'good', 'perfect'];
+    let path = window.location.pathname;
+    let url = (path.slice(path.indexOf('cards')));
+    let http = new XMLHttpRequest();
+    let params = 'confidence_level=' + confidence_level[num];
+    http.open('PATCH', `/${url}`, true);
 
-  //Send the proper header information along with the request
-  http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //Send the proper header information along with the request
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-  http.onreadystatechange = function() {//Call a function when the state changes.
-    if(http.readyState == 4 && http.status == 204) {
-      
-      level.innerText = 'Current level of confidence: ' + http.responseText;
+    //Call a function when the state changes.
+    http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+        level.innerText = 'Current level of confidence: ' + http.responseText;
+      }
     }
+    http.send(params);
   }
-  http.send(params);
-}
 </script>

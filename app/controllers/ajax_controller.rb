@@ -1,25 +1,25 @@
 class AjaxController < ApplicationController
-  before_action :board, :set_card
+  before_action :set_card
   skip_before_action :verify_authenticity_token
 
   def change_confidence_level
     @card.attributes = card_params
-    @card.save
+    if @card.save
+      render json: @card.confidence_level, status: 200
+    else
+      render json: 'Error', status: 404
+    end
   end
 
   private
 
-  def board
-    @board = Board.find(params[:board_id])
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_card
-    @card = @board.cards.find(params[:id])
+    @card = Card.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def card_params
-    params.permit(:confidence_level, :board_id, :id)
+    params.permit(:confidence_level, :id)
   end
 end
