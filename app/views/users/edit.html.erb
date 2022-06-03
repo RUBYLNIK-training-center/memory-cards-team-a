@@ -1,11 +1,16 @@
+<h2>Update your password</h2>
+
+
 <%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
+
   <div class="field form-group">
     <% f.label :current_password %><br/>
     <%= f.password_field :current_password, class:"form-control", placeholder:"Current password (we need your current password to confirm your changes)" %>
   </div>
   <div class="field form-group">
     <% f.label :password, "Password" %><br/>
-    <%= f.password_field :password, class:"form-control", placeholder:"New password", :autocomplete => "off"  %>
+    <%= f.password_field :password, class:"form-control", placeholder:"New password (minimum 6 characters)", :autocomplete => "off"  %>
   </div>
   <div class="field form-group">
     <% f.label :password_confirmation %><br/>
@@ -15,3 +20,4 @@
     <%= f.submit "Update password", class:"btn btn-warning" %>
   </div>
 <% end %>
+
