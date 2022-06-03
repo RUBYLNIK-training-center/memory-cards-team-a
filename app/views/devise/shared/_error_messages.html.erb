@@ -1,5 +1,5 @@
 <% if resource.errors.any? %>
-  <div id="message", class="alert alert-danger fs-1s">
+  <div id="message", class="alert alert-danger fs-1s", role="alert">
     <ul>
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -7,3 +7,9 @@
     </ul>
   </div>
 <% end %>
+
+<style>
+  ul {
+    margin: 0;
+  }
+</style>
