@@ -15,9 +15,114 @@
       </div>
       <div class="col-4">
         <%= link_to 'Show', board_card_path(@board, card), class: "btn btn-secondary" %>
-        <%= link_to 'Edit', edit_board_card_path(@board, card), class: "btn btn-primary" %>
+        <button onclick="funcionForEdit(this)" type="button" class="btn btn-primary card-id" data-bs-toggle="modal" data-bs-target="#exampleModal" value='<%= card.id %>'>
+          Edit
+        </button>
         <%= link_to 'Destroy', [@board, card], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       </div>
     </div>
   </div>
+
+
+  <!-- Modal -->
+  <div onfocus="funcitonForFocus()" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Card #</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class='row'>
+            <div class="col-6 field">
+              <label for="textArea1">Question</label>
+              <div class="autogrow">
+                <textarea class='form-control' id="textArea1">Your text</textarea>
+              </div>        
+            </div>
+
+
+            <div class="col-6 field">
+              <label for="textArea2">Answer</label>
+              <div class="autogrow">
+                <textarea class='form-control' id="textArea2">Your text</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button onclick='funcionForSave()' id="but" type="button" class="btn btn-success" data-bs-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
+
+
+
+<script>
+  let currrent_card_id;
+
+  function funcitonForFocus() {
+    document.querySelectorAll('textarea').forEach(el => {
+      el.style.height = el.setAttribute('style', 'height: ' + 0 + 'px');
+      el.style.height = el.setAttribute('style', 'height: ' + el.scrollHeight + 'px');
+      el.classList.add('auto');
+      el.addEventListener('input', e => {
+          el.style.height = 'auto';
+          el.style.height = (el.scrollHeight) + 'px';
+      });
+    });
+  };
+
+  function funcionForEdit(card) {
+    currrent_card_id = card.value;
+    let params = '';
+    document.getElementById('exampleModalLabel').innerText = 'Edit Card # ' + currrent_card_id;
+    let path = window.location.pathname;
+    let board_id = parseInt(path.replace(/[^\d]/g, ''));
+    let http = new XMLHttpRequest();
+    http.open('GET', `/boards/${board_id}/cards/${currrent_card_id}.json`, true);
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+        let full_card = JSON.parse(http.responseText);
+        document.getElementById('textArea1').value = full_card.question;
+        document.getElementById('textArea2').value = full_card.answer;
+      }
+    }
+    http.send(params);
+  }
+
+  function funcionForSave(card) {
+    let http = new XMLHttpRequest();
+    let question = document.getElementById('textArea1').value;
+    let answer = document.getElementById('textArea2').value;
+    let params = 'question=' + question + '&answer=' + answer;
+    http.open('PUT', `/cards/${currrent_card_id}`, true);
+
+    //Send the proper header information along with the request
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    //Call a function when the state changes.
+    http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+        location.reload();
+      }
+    }
+    http.send(params);
+  }
+</script>
+
+<style>
+  textarea {
+      resize: none;
+      &.auto {
+          overflow-y: hidden;
+      }
+  }
+
+  .modal-dialog.modal-lg {
+    margin-top: 14%;
+  }
+</style>
