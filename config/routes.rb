@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
     root 'welcome#index'
     resources :boards do
+      
       resources :cards
       get '/learning', to: 'cards#learn'
     end
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
         patch 'update_password'
       end
     end
+    patch '/cards/:id', to: 'ajax#change_confidence_level'
   end
   resources :imports
 end
