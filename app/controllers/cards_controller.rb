@@ -19,16 +19,13 @@ class CardsController < ApplicationController
     @cards = @board.cards.order(created_at: :asc)
   end
 
-  # GET /cards/1
+  # GET /cards/1 or /cards/1.json
   def show; end
 
   # GET /cards/new
   def new
     @card = @board.cards.build
   end
-
-  # GET /cards/1/edit
-  def edit; end
 
   # POST /cards
   def create

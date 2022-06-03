@@ -11,6 +11,14 @@ class AjaxController < ApplicationController
     end
   end
 
+  def update_card_throw_modal
+    if @card.update(card_params)
+      render json: 'Good', status: 200
+    else
+      render json: 'Error', status: 404
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -20,6 +28,6 @@ class AjaxController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def card_params
-    params.permit(:confidence_level, :id)
+    params.permit(:confidence_level, :id, :question, :answer)
   end
 end

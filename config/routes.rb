@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       end
     end
     patch '/cards/:id', to: 'ajax#change_confidence_level'
+    put '/cards/:id', to: 'ajax#update_card_throw_modal'
   end
   resources :imports
 end
