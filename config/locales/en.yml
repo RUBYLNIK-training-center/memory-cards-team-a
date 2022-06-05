@@ -18,6 +18,13 @@ en:
       cancel: "Cancel my account"
       unhappy: "Unhappy?"
       change: "Change your password"
+      signup: "Sign up"
+      email: "Email"
+      name: "Name"
+      surname: "Surname"
+      password: "Password (6 characters minimum)"
+      password_confirm: "Password confirmation"
+
   instructions:
     manual:
       doc: "Instructions"

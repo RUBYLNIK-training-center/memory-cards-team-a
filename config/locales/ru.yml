@@ -15,7 +15,12 @@ ru:
       cancel: "Выйти из аккаунта"
       unhappy: "Неудачно?"
       change: "Сменить пароль"
-
+      signup: "Регистрация"
+      email: "Электронная почта"
+      name: "Имя"
+      surname: "Фамилия"
+      password: "Пароль (минимум 6 символов)"
+      password_confirm: "Подтверждение пароля"
   instructions:
     manual:
       doc: "Инструкция"
