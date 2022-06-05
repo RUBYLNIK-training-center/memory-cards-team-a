@@ -1,6 +1,21 @@
 ru:
   en: "Английский"
   ru: "Русский"
+  activerecord:
+    attributes:
+      user:
+        name: "Имя"
+        surname: "Фамилия"
+        email: "Электронная почта"
+  devise:
+    registrations:
+      edit: "Редактирование Пользователя"
+      update: "Обновить"
+      back: "Назад"
+      cancel: "Выйти из аккаунта"
+      unhappy: "Неудачно?"
+      change: "Сменить пароль"
+
   instructions:
     manual:
       doc: "Инструкция"

@@ -1,6 +1,23 @@
 en:
   en: "English"
   ru: "Russian"
+  activerecord:
+    model:
+      user: "user"
+    attributes:
+      user:
+        name: "Name"
+        surname: "Surname"
+        email: "Email"
+        user: "User1"
+  devise:
+    registrations:
+      edit: "Edit User"
+      update: "Update"
+      back: "Back"
+      cancel: "Cancel my account"
+      unhappy: "Unhappy?"
+      change: "Change your password"
   instructions:
     manual:
       doc: "Instructions"
