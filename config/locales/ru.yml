@@ -7,6 +7,7 @@ ru:
         name: "Имя"
         surname: "Фамилия"
         email: "Электронная почта"
+        remember_me: "Запомнить"
   devise:
     registrations:
       edit: "Редактирование Пользователя"
@@ -21,6 +22,16 @@ ru:
       surname: "Фамилия"
       password: "Пароль (минимум 6 символов)"
       password_confirm: "Подтверждение пароля"
+    shared:
+      login: "Вход"
+      signup: "Регистрация"
+      forgot: "Забыли пароль?"
+      sign_in: "Вход через "
+    sessions:
+      new:
+        login: "Вход"
+        email: "Электронная почта"
+        password: "Пароль"
   instructions:
     manual:
       doc: "Инструкция"

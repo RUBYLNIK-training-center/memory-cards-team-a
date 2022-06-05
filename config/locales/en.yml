@@ -9,7 +9,8 @@ en:
         name: "Name"
         surname: "Surname"
         email: "Email"
-        user: "User1"
+        user: "User"
+        remember_me: "Remember me"
   devise:
     registrations:
       edit: "Edit User"
@@ -24,7 +25,16 @@ en:
       surname: "Surname"
       password: "Password (6 characters minimum)"
       password_confirm: "Password confirmation"
-
+    shared:
+      login: "Log in"
+      signup: "Sign up"
+      forgot: "Forgot your password?"
+      sign_in: "Sign in with "
+    sessions:
+      new:
+        login: "Log in"
+        email: "Email"
+        password: "Password"
   instructions:
     manual:
       doc: "Instructions"
