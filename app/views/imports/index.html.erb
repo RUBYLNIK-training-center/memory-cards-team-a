@@ -1,9 +1,9 @@
-<h1>Imports</h1>
+<h1><%= t(".imp") %></h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">File</th>
+      <th scope="col"><%= t(".file") %></th>
     </tr>
   </thead>
 
@@ -12,9 +12,9 @@
       <% if import.user == current_user %>
         <tr>
           <td><%= link_to import.file.filename, rails_blob_path(import.file, disposition: 'preview'), class:"text-decoration-none" %></td>
-          <td><%= link_to 'Show', import, class: "text-decoration-none" %></td>
-          <td><%= link_to 'Edit', edit_import_path(import), class: "text-decoration-none" %></td>
-          <td><%= link_to 'Destroy', import, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-decoration-none" %></td>
+          <td><%= link_to t(".show"), import, class: "text-decoration-none" %></td>
+          <td><%= link_to t(".edit"), edit_import_path(import), class: "text-decoration-none" %></td>
+          <td><%= link_to t(".destroy"), import, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-decoration-none" %></td>
         </tr>
       <% end %>
     <% end %>
