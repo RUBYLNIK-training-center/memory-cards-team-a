@@ -7,6 +7,7 @@ ru:
         name: "Имя"
         surname: "Фамилия"
         email: "Электронная почта"
+        user: "Пользователь"
         remember_me: "Запомнить"
   devise:
     registrations:
@@ -32,6 +33,13 @@ ru:
         login: "Вход"
         email: "Электронная почта"
         password: "Пароль"
+  users:
+    edit:
+      update: "Обновите пароль"
+      update_your: "Обновите свой пароль"
+      current_password: "Текущий пароль (введите свой текущий пароль, чтобы подтвердить изменения)"
+      password: "Новый пароль (минимум 6 символов)"
+      confirm_password: "Подтвердите пароль"
   instructions:
     manual:
       doc: "Инструкция"

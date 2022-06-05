@@ -2,8 +2,6 @@ en:
   en: "English"
   ru: "Russian"
   activerecord:
-    model:
-      user: "user"
     attributes:
       user:
         name: "Name"
@@ -35,6 +33,13 @@ en:
         login: "Log in"
         email: "Email"
         password: "Password"
+  users:
+    edit:
+      update: "Update password"
+      update_your: "Update my password"
+      current_password: "Current password (we need your current password to confirm your changes)"
+      password: "New password (minimum 6 characters)"
+      confirm_password: "Password confirmation"
   instructions:
     manual:
       doc: "Instructions"
