@@ -1,7 +1,7 @@
-<h1 class="text-center">Cards</h1>
+<h1 class="text-center"><%= t(".cards") %></h1>
 
-  <%= link_to 'New Card', new_board_card_path(@board), class: "btn btn-primary mb-3" %>
-  <%= link_to 'Back', boards_path, class: "btn btn-outline-secondary mb-3" %>
+  <%= link_to t(".cards_new"), new_board_card_path(@board), class: "btn btn-primary mb-3" %>
+  <%= link_to t(".back"), boards_path, class: "btn btn-outline-secondary mb-3" %>
 
 <% @cards.each do |card| %>
 
@@ -14,11 +14,11 @@
         <%= markdown(card.answer) %>
       </div>
       <div class="col-4">
-        <%= link_to 'Show', board_card_path(@board, card), class: "btn btn-secondary" %>
+        <%= link_to t(".show"), board_card_path(@board, card), class: "btn btn-secondary" %>
         <button onclick="funcionForEdit(this)" type="button" class="btn btn-primary card-id" data-bs-toggle="modal" data-bs-target="#exampleModal" value='<%= card.id %>'>
-          Edit
+          <%= t(".edit") %>
         </button>
-        <%= link_to 'Destroy', [@board, card], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <%= link_to t(".destroy"), [@board, card], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       </div>
     </div>
   </div>
@@ -29,13 +29,13 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Card #</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Edit Card</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class='row'>
             <div class="col-6 field">
-              <label for="textArea1">Question</label>
+              <label for="textArea1"><%= t(".question") %></label>
               <div class="autogrow">
                 <textarea class='form-control' id="textArea1">Your text</textarea>
               </div>        
@@ -43,7 +43,7 @@
 
 
             <div class="col-6 field">
-              <label for="textArea2">Answer</label>
+              <label for="textArea2"><%= t(".answer") %></label>
               <div class="autogrow">
                 <textarea class='form-control' id="textArea2">Your text</textarea>
               </div>
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button onclick='funcionForSave()' id="but" type="button" class="btn btn-success" data-bs-dismiss="modal">Save changes</button>
+          <button onclick='funcionForSave()' id="but" type="button" class="btn btn-success" data-bs-dismiss="modal"><%= t(".save_change") %></button>
         </div>
       </div>
     </div>

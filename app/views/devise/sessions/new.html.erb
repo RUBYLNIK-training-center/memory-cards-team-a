@@ -1,13 +1,13 @@
-<h2>Log in</h2>
+<h2><%= t("devise.sessions.new.login") %></h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field form-group">
     <% f.label :email %><br />
-    <%= f.email_field :email, class:"form-control", placeholder:"Email", autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, class:"form-control", placeholder: t("devise.sessions.new.email"), autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field form-group">
     <% f.label :password %><br />
-    <%= f.password_field :password, class:"form-control", placeholder:"Password", autocomplete: "current-password" %>
+    <%= f.password_field :password, class:"form-control", placeholder:t("devise.sessions.new.password"), autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -18,7 +18,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in", class:"btn btn-warning" %>
+    <%= f.submit t("devise.sessions.new.login"), class:"btn btn-warning" %>
   </div>
 <% end %>
 

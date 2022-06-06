@@ -1,6 +1,52 @@
 en:
   en: "English"
   ru: "Russian"
+  activerecord:
+    attributes:
+      user:
+        name: "Name"
+        surname: "Surname"
+        email: "Email"
+        user: "User"
+        remember_me: "Remember me"
+      board:
+        name: "Name"
+      card:
+        question: "question"
+        answer: "answer"
+      import:
+        file: "File"
+  devise:
+    registrations:
+      edit: "Edit User"
+      update: "Update"
+      back: "Back"
+      cancel: "Cancel my account"
+      unhappy: "Unhappy?"
+      change: "Change your password"
+      signup: "Sign up"
+      email: "Email"
+      name: "Name"
+      surname: "Surname"
+      password: "Password (6 characters minimum)"
+      password_confirm: "Password confirmation"
+    shared:
+      login: "Log in"
+      signup: "Sign up"
+      forgot: "Forgot your password?"
+      sign_in: "Sign in with "
+    sessions:
+      new:
+        login: "Log in"
+        email: "Email"
+        password: "Password"
+  users:
+    edit:
+      update: "Update password"
+      update_your: "Update my password"
+      current_password: "Current password (we need your current password to confirm your changes)"
+      password: "New password (minimum 6 characters)"
+      confirm_password: "Password confirmation"
   instructions:
     manual:
       doc: "Instructions"
@@ -18,6 +64,17 @@ en:
       edit: "Edit"
       destroy: "Destroy"
       newboard: "New Board"
+      boards: "Boards"
+      import_cards: "Cards Import"
+    new:
+      new_board: "New Board"
+      back: "Back"
+    edit:
+      editing: "Editing Board"
+      back: "Back"
+    show:
+      name: "Name"
+      back: "Back"
   welcome:
     index:
       welcomes: "Hello World"
@@ -33,5 +90,28 @@ en:
       signup: "Sign-up"
       editprofile: "Edit Profile"
       hello: "Hi, "
+  imports:
+    index:
+      imp: "Imports"
+      file: "File"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+    new:
+      new_import: "New import"
+      back: "Back"
+  cards:
+    index:
+      cards: "Cards"
+      cards_new: "New Card"
+      back: "Back"
+      show: "Show"
+      destroy: "Destroy"
+      edit: "Edit"
+      edit_card: "Edit Card #"
+      question: "Question"
+      answer: "Answer"
+      save_change: "Save Change"
+
 
 

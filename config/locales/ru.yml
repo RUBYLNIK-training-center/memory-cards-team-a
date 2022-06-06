@@ -1,23 +1,80 @@
 ru:
   en: "Английский"
   ru: "Русский"
+  activerecord:
+    attributes:
+      user:
+        name: "Имя"
+        surname: "Фамилия"
+        email: "Электронная почта"
+        user: "Пользователь"
+        remember_me: "Запомнить"
+      board:
+        name: "Имя"
+      card:
+        question: "вопрос"
+        answer: "ответ"
+      import:
+        file: "Файл"
+  devise:
+    registrations:
+      edit: "Редактирование Пользователя"
+      update: "Обновить"
+      back: "Назад"
+      cancel: "Удалить аккаунт"
+      unhappy: "Несчастливы?"
+      change: "Сменить пароль"
+      signup: "Регистрация"
+      email: "Электронная почта"
+      name: "Имя"
+      surname: "Фамилия"
+      password: "Пароль (минимум 6 символов)"
+      password_confirm: "Подтверждение пароля"
+    shared:
+      login: "Вход"
+      signup: "Регистрация"
+      forgot: "Забыли пароль?"
+      sign_in: "Вход через "
+    sessions:
+      new:
+        login: "Вход"
+        email: "Электронная почта"
+        password: "Пароль"
+  users:
+    edit:
+      update: "Обновите пароль"
+      update_your: "Обновите свой пароль"
+      current_password: "Текущий пароль (введите свой текущий пароль, чтобы подтвердить изменения)"
+      password: "Новый пароль (минимум 6 символов)"
+      confirm_password: "Подтвердите пароль"
   instructions:
     manual:
       doc: "Инструкция"
       description: "Memory card  это обучающий сервис, который поможет изучить некоторые вещи намного быстрее"
-      login: "Авторизация"
-      board: "Перейти по ссылке Доска, создать новую доску"
-      card: "Нажми показать и созать новую карточку"
+      login: "Авторизуйтесь"
+      board: "Перейти по ссылке 'Доска', затем создайте новую доску"
+      card: "Нажми показать, затем создайте новую карточку"
       step: "Шаг"
   boards:
     index:
       name: "Имя доски"
       user: "Id пользователя"
-      learn: "Изучение карточки"
+      learn: "Изучение карточек"
       show: "Показать"
       edit: "Редактировать"
       destroy: "Удалить"
       newboard: "Новая доска"
+      boards: "Доски"
+      import_cards: "Импорт карточек"
+    new:
+      new_board: "Новая доска"
+      back: "Назад"
+    edit:
+      editing: "Редактирование Доски"
+      back: "Назад"
+    show:
+      name: "Имя"
+      back: "Назад"
   welcome:
     index:
       welcomes: "Привет, Мир"
@@ -33,3 +90,26 @@ ru:
       signup: "Регистрация"
       editprofile: "Профиль"
       hello: "Привет, "
+  imports:
+    index:
+      imp: "Импорт"
+      file: "Файл"
+      show: "Показать"
+      edit: "Редактировать"
+      destroy: "Удалить"
+    new:
+      new_import: "Импорт"
+      back: "Назад"
+  cards:
+    index:
+      cards: "Карточки"
+      cards_new: "Новая карточка"
+      back: "Назад"
+      show: "Показать"
+      destroy: "Удалить"
+      edit: "Редактировать"
+      edit_card: "Редактировать карточку #"
+      question: "Вопрос"
+      answer: "Ответ"
+      save_change: "Сохранить"
+

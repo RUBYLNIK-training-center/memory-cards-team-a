@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= t("devise.registrations.edit") %> </h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -23,23 +23,23 @@
   </div><br/>
 
   <div class="mb-3">
-    <%= link_to "Change your password", edit_user_path, class: "text-decoration-none" %>
+    <%= link_to t("devise.registrations.change"), edit_user_path, class: "text-decoration-none" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update", class:"btn btn-warning" %>
+    <%= f.submit t"devise.registrations.update", class:"btn btn-warning" %>
   </div>
 <% end %>
 
 <br/>
 <div class="card">
     <div class="card-header">
-      <h4>Cancel my account</h4>
+      <h4><%= t("devise.registrations.cancel") %></h4>
     </div>
   <div class="card-body">
-    <h5 class="card-title">Unhappy?</h5>
-    <p class="card-text"><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'btn btn-danger' %></p>
+    <h5 class="card-title"><%= t("devise.registrations.unhappy") %></h5>
+    <p class="card-text"><%= button_to t("devise.registrations.cancel"), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'btn btn-danger' %></p>
 
-    <%= link_to "Back", :back %>
+    <%= link_to t("devise.registrations.back"), :back %>
   </div>
 </div>
