@@ -36,6 +36,7 @@
             </div>
 
           <% if user_signed_in? %>
+          <%= image_tag current_user.image, size: '20x20' if current_user.image? %>
             <%= current_user.name.try(:empty?) ? current_user.email : t("layouts._header.hello") + [current_user.name,current_user.surname].map(&:to_s).join(' ')  %>
             <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
             <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
