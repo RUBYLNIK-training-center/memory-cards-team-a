@@ -38,9 +38,9 @@
           <% if user_signed_in? %>
             <%= current_user.name.try(:empty?) ? current_user.email : t("layouts._header.hello") + [current_user.name,current_user.surname].map(&:to_s).join(' ')  %>
             <% if current_user.image? %>
-              <%= image_tag current_user.image, size: '20x20' %>
+              <%= image_tag current_user.image, class: "round" %>
             <% else %>
-              <%= image_tag "users/default_image.png",  alt: 'img', size: '20x20' %>
+              <%= image_tag "users/default_image.png",  alt: 'img', class: "round" %>
             <% end %>
             <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
             <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
@@ -53,3 +53,12 @@
       </div>
     </div>
   </header>
+
+<style>
+    .round {
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        margin-left: 10px;
+    }
+</style>
+
