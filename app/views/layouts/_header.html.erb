@@ -1,58 +1,55 @@
 <header class="p-3 bg-dark text-white">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <%= link_to t("layouts._header.memory") , root_path, class:"nav-link px-2 text-secondary" %>
-          <%= link_to t("layouts._header.boards") , boards_path, class:"nav-link px-2 text-white" %>
-          <%= link_to t("layouts._header.emanual") , instructions_path, class:"nav-link px-2 text-white" %>
-          <%#= link_to "Sign in with Github", user_github_omniauth_authorize_path, method: :post %>
-          <%#= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post %>
-        </ul>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <%= link_to t("layouts._header.memory") , root_path, class:"nav-link px-2 text-secondary" %>
+        <%= link_to t("layouts._header.boards") , boards_path, class:"nav-link px-2 text-white" %>
+        <%= link_to t("layouts._header.emanual") , instructions_path, class:"nav-link px-2 text-white" %>
+        <%#= link_to "Sign in with Github", user_github_omniauth_authorize_path, method: :post %>
+        <%#= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post %>
+      </ul>
 
-        <div class="text-end">
-
-              <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white',
-                          data: {"bs-toggle": 'dropdown'} do %>
-                <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
-                <%= t I18n.locale %>
-              <% end %>
-
-              <div class="dropdown-menu">
-                <% I18n.available_locales.each do |locale| %>
-                  <li>
-                    <% if I18n.locale == locale %>
-                      <%= tag.span t(locale), class: 'dropdown-item' %>
-                    <% else %>
-                      <%= link_to t(locale), url_for(locale: locale),
-                                  class: 'dropdown-item' %>
-                    <% end %>
-                  </li>
-                <% end %>
-              </div>
-            </div>
-
-          <% if user_signed_in? %>
-            <%= current_user.name.try(:empty?) ? current_user.email : t("layouts._header.hello") + [current_user.name,current_user.surname].map(&:to_s).join(' ')  %>
-            <% if current_user.image? %>
-              <%= image_tag current_user.image, class: "round" %>
-            <% else %>
-              <%= image_tag "users/default_image.png",  alt: 'img', class: "round" %>
-            <% end %>
-            <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
-            <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
+      <div class="text-end">
+        <% if user_signed_in? %>
+          <%= current_user.name.try(:empty?) ? current_user.email : t("layouts._header.hello") + [current_user.name,current_user.surname].map(&:to_s).join(' ')  %>
+          <% if current_user.image? %>
+            <%= image_tag current_user.image, class: "round" %>
           <% else %>
-            <%= link_to t("layouts._header.signin"), new_user_session_path, class:"btn btn-outline-light me-2" %>
-            <%= link_to t("layouts._header.signup"), new_user_registration_path, class:"btn btn-warning" %>
+            <%= image_tag "users/default_image.png",  alt: 'img', class: "round" %>
           <% end %>
+          <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
+          <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
+        <% else %>
+          <%= link_to t("layouts._header.signin"), new_user_session_path, class:"btn btn-outline-light me-2" %>
+          <%= link_to t("layouts._header.signup"), new_user_registration_path, class:"btn btn-warning" %>
+        <% end %>
+      </div>
 
-        </div>
+      <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white',
+                  data: {"bs-toggle": 'dropdown'} do %>
+        <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
+        <%= t I18n.locale %>
+      <% end %>
+
+      <div class="dropdown-menu">
+        <% I18n.available_locales.each do |locale| %>
+          <li>
+            <% if I18n.locale == locale %>
+              <%= tag.span t(locale), class: 'dropdown-item' %>
+            <% else %>
+              <%= link_to t(locale), url_for(locale: locale),
+                          class: 'dropdown-item' %>
+            <% end %>
+          </li>
+        <% end %>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
 <style>
     .round {
@@ -61,4 +58,3 @@
         margin-left: 10px;
     }
 </style>
-
