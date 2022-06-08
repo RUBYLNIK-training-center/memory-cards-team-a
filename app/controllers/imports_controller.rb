@@ -25,7 +25,12 @@ class ImportsController < ApplicationController
 
     respond_to do |format|
       if @import.save
-        format.html { redirect_to import_url(@import), notice: 'Import was successfully created.' }
+        if CardImport.new(import: @import, user: current_user).call
+          format.html { redirect_to import_url(@import), notice: 'Import was successfully created.' }
+        else
+          @import.destroy
+          format.html { redirect_to imports_url, notice: 'csv file has an incorrect structure.' }
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
       end
