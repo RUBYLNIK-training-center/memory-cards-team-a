@@ -1,5 +1,12 @@
 <h1><%= t(".imp") %></h1>
-
+<div class="position-relative">
+  <div class="position-absolute top-0 start-0">
+    <%= link_to 'New Import', new_import_path, class: "btn btn-primary" %>
+  </div>
+  <div class="position-absolute top-0 end-0">
+    <%= link_to 'Downloads Template', '/cards_import.csv', download: 'cards_import.csv', class: "btn btn-primary" %>
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -24,3 +31,7 @@
 <br>
 
 <%= link_to 'New Import', new_import_path, class: "btn btn-primary" %>
+
+<script type="text/javascript">
+    window.onload = document.getElementById('Link_to_Downlaod').click();
+</script>
