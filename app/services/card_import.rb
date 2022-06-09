@@ -4,7 +4,7 @@ class CardImport
     @user = user
   end
 
-  def call
+  def call # rubocop:disable Metrics/AbcSize
     @import.file.open do |tempfile|
       CSV.foreach(tempfile, headers: true) do |row|
         hash = row.to_hash
@@ -17,6 +17,6 @@ class CardImport
         board.cards.find_or_create_by(question: hash['card_question'], answer: hash['card_answer'])
       end
     end
-    return true
+    true
   end
 end
