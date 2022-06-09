@@ -1,6 +1,6 @@
 ru:
-  en: "Английский"
-  ru: "Русский"
+  en: "En"
+  ru: "Ru"
   activerecord:
     attributes:
       user:
