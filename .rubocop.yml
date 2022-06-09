@@ -22,3 +22,6 @@ Metrics/BlockLength:
   Exclude:
     - spec/routing
   Max: 50
+
+Metrics/MethodLength:
+  Max: 100

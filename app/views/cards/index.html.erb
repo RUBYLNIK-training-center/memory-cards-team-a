@@ -1,7 +1,10 @@
 <h1 class="text-center"><%= t(".cards") %></h1>
 
-  <%= link_to t(".cards_new"), new_board_card_path(@board), class: "btn btn-primary mb-3" %>
-  <%= link_to t(".back"), boards_path, class: "btn btn-outline-secondary mb-3" %>
+<div class="d-flex bd-highlight mb-3">
+  <div class="p-2 bd-highlight"><%= link_to t(".cards_new"), new_board_card_path(@board), class: "btn btn-primary mb-3" %></div>
+  <div class="p-2 bd-highlight"><%= link_to t(".back"), boards_path, class: "btn btn-outline-secondary mb-3" %></div>
+  <div class="ms-auto p-2 bd-highlight"><%= link_to 'Export CSV', board_cards_path(@board, format: :csv), class: "btn btn-primary mb-3" %></div>
+</div>
 
 <% @cards.each do |card| %>
 
