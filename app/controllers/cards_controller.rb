@@ -17,6 +17,10 @@ class CardsController < ApplicationController
   # GET /cards
   def index
     @cards = @board.cards.order(created_at: :asc)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @cards.to_csv(@board), filename: 'cards.csv' }
+    end
   end
 
   # GET /cards/1 or /cards/1.json
