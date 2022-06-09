@@ -37,8 +37,10 @@
 
           <% if user_signed_in? %>
             <%= current_user.name.try(:empty?) ? current_user.email : t("layouts._header.hello") + [current_user.name,current_user.surname].map(&:to_s).join(' ')  %>
-            <% if current_user.image? %>
-              <%= image_tag current_user.image, class: "round" %>
+            <% if current_user.avatar.present? %>
+              <%= image_tag(current_user.avatar, style: "width: 40px; length: 50px; margin: 10px", class: "round")  %>
+            <% elsif current_user.image? %>
+              <%= image_tag current_user.image, class: "round"   %>
             <% else %>
               <%= image_tag "users/default_image.png",  alt: 'img', class: "round" %>
             <% end %>
