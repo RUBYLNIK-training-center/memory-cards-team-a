@@ -19,7 +19,7 @@ class CardsController < ApplicationController
     @cards = @board.cards.order(created_at: :asc)
     respond_to do |format|
       format.html
-      format.csv { send_data @cards.to_csv, filename: 'cards.csv' }
+      format.csv { send_data @cards.to_csv(@board), filename: 'cards.csv' }
     end
   end
 
