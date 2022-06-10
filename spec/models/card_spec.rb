@@ -33,4 +33,14 @@ RSpec.describe Card, type: :model do
       expect(card).not_to be_valid
     end
   end
+
+  describe '.to_csv' do
+    let(:csv_file) { board.cards.to_csv(board) }
+
+    before { card }
+
+    it 'creates CSV file with proper value' do
+      expect(csv_file).to eq("board_name,card_question,card_answer\nAnything,Is it test?,yep\n")
+    end
+  end
 end
