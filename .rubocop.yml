@@ -25,7 +25,3 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Max: 100
-
-Layout/EndOfLine:
-  Enabled: False
-
