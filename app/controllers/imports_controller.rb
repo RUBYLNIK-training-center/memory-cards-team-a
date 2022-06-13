@@ -26,7 +26,7 @@ class ImportsController < ApplicationController
     respond_to do |format|
       if @import.save
         if ImportJob.perform_later(simport: @import, suser: current_user)
-           format.html { redirect_to import_url(@import), notice: 'Import was successfully created.' }
+          format.html { redirect_to import_url(@import), notice: 'Import was successfully created.' }
         else
           @import.destroy
           format.html { redirect_to imports_url, notice: 'csv file has an incorrect structure.' }
