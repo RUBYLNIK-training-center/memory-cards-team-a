@@ -26,5 +26,6 @@ module MemoryCardTeamA
     config.load_defaults 6.1
     config.generators.system_tests = nil
     config.exceptions_app = self.routes
+    config.active_job.queue_adapter = :sidekiq
   end
 end

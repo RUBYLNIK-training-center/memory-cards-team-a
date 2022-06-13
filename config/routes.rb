@@ -1,4 +1,9 @@
+# frozen_string_literal: true
+
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => 'sidekiq'
   devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'omniauth'}
   scope "(:locale)",locale: /#{I18n.available_locales.join("|")}/ do
     devise_for :admin_users, ActiveAdmin::Devise.config
