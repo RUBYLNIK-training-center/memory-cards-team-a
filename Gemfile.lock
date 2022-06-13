@@ -427,7 +427,6 @@ DEPENDENCIES
   shoulda-matchers (~> 5.0)
   simplecov
   spring
-  sprockets (= 3.7.2)
   tzinfo-data
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
