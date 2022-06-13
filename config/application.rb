@@ -27,8 +27,5 @@ module MemoryCardTeamA
     config.generators.system_tests = nil
     config.exceptions_app = self.routes
 
-    config.assets.configure do |env|
-      env.export_concurrent = false
-    end
   end
 end

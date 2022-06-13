@@ -24,6 +24,7 @@ gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store'
 gem "omniauth-rails_csrf_protection"
 gem "google-cloud-storage", "~> 1.8", require: false
+gem 'sprockets', '3.7.2'
 
 
 group :development, :test do
