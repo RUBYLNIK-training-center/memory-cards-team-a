@@ -26,5 +26,9 @@ module MemoryCardTeamA
     config.load_defaults 6.1
     config.generators.system_tests = nil
     config.exceptions_app = self.routes
+
+    config.assets.configure do |env|
+      env.export_concurrent = false
+    end
   end
 end
