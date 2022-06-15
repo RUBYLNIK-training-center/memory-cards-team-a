@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ImportJob, :type => :job do
+RSpec.describe ImportJob, type: :job do
   let(:user) do
     User.create(email: 'test@example.com', name: 'Test', surname: 'Tester', password: '123456',
                 password_confirmation: '123456')
@@ -24,12 +24,12 @@ RSpec.describe ImportJob, :type => :job do
     end
   end
 
-  describe "#perform" do
+  describe '#perform' do
     context 'with file structure matches table schema' do
       it 'returns true' do
         upload = blob_for('test.csv')
         import_csv = Import.create(user_id: user.id, file: upload)
-        expect(ImportJob.new.perform(simport: import_csv, suser: user)).to be(true)
+        expect(described_class.new.perform(simport: import_csv, suser: user)).to be(true)
       end
     end
 
@@ -37,7 +37,7 @@ RSpec.describe ImportJob, :type => :job do
       it 'returns false' do
         upload = blob_for('test2.csv')
         import_csv = Import.create(user_id: user.id, file: upload)
-        expect(ImportJob.new.perform(simport: import_csv, suser: user)).to be(false)
+        expect(described_class.new.perform(simport: import_csv, suser: user)).to be(false)
       end
     end
 
