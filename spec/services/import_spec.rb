@@ -7,7 +7,7 @@ RSpec.describe 'CardImport' do
   end
 
   let(:file_path) { 'tmp/test.csv' }
-  let(:csv) do
+  let!(:csv) do
     CSV.open(file_path, 'w') do |csv|
       csv << %w[board_name card_question card_answer]
       csv << ['Ruby', 'What is ruby?', '1']
@@ -16,7 +16,7 @@ RSpec.describe 'CardImport' do
   end
 
   let(:file_path2) { 'tmp/test2.csv' }
-  let(:csv2) do
+  let!(:csv2) do
     CSV.open(file_path2, 'w') do |csv|
       csv << %w[board_name card_question card_answer]
       csv << ['Ruby', 'What is ruby?', '1']
