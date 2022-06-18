@@ -25,7 +25,7 @@ class ImportsController < ApplicationController
 
     respond_to do |format|
       if @import.save
-        if ImportJob.perform_later(simport: @import, suser: current_user)
+        if ImportJob.perform_now(simport: @import, suser: current_user)
           format.html { redirect_to import_url(@import), notice: 'Import was successfully created.' }
         else
           @import.destroy
