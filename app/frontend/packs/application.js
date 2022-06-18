@@ -3,8 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require(" @rails/ujs ").start()
-require(" @rails/activestorage ").start()
+require("@rails/ujs").start()
+require("@rails/activestorage").start()
 require("channels")
 import 'styles/site'
 import('js/site')
