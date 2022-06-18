@@ -77,9 +77,10 @@ en:
       back: "Back"
   welcome:
     index:
-      welcomes: "Hello World"
-      boards: "Boards"
-      timenow: "The time is now: "
+      welcomes1: "Study with us!"
+      welcomes2: "Study with Memory Cards!"
+      welcomes3: "Use our online flashcard maker to generate your own sets of educational or information flashcards for any purpose"
+      boards: "Get started"
   layouts:
     _header:
       memory: "Memory cards"
