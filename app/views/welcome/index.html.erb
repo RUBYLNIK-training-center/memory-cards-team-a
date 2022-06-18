@@ -1,6 +1,18 @@
-<h2><%= t('welcome.index.welcomes') %></h2>
-<p>
-  <%= t"welcome.index.timenow" %> <%= l(Time.now, format: :long) %>
-</p>
-
-<%= link_to t('welcome.index.boards'), boards_path, class: "btn btn-outline-dark" %>
+<div class="container">
+  <br>
+  <br>
+  <div class="row">
+    <div class="col footer text-center py-4">
+      <h1><%= t('welcome.index.welcomes1') %> </h1>
+      <h3><%= t('welcome.index.welcomes2') %></h3>
+      <br>
+      <br>
+      <h6><%= t('welcome.index.welcomes3') %></h6>
+      <br>
+      <h3><%= link_to t('welcome.index.boards'), boards_path, class: "btn btn-warning", placeholder: ("rd") %></h3>
+    </div>
+    <div class="col">
+      <%= image_tag "main/main.png", style: "width: 600px; length: 600px" %>
+    </div>
+  </div>
+</div>
