@@ -34,7 +34,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit t"devise.registrations.update" %>
+    <%= f.submit t("devise.registrations.update"), class: 'btn btn-primary' %>
   </div>
 <% end %>
 
@@ -47,6 +47,6 @@
     <h5 class="card-title"><%= t("devise.registrations.unhappy") %></h5>
     <p class="card-text"><%= button_to t("devise.registrations.cancel"), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'btn btn-danger' %></p>
 
-    <%= link_to t("devise.registrations.back"), :back %>
+    <%= link_to t("devise.registrations.back"), :back, class:'text-decoration-none' %>
   </div>
 </div>

@@ -77,9 +77,10 @@ ru:
       back: "Назад"
   welcome:
     index:
-      welcomes: "Привет, Мир"
-      boards: "Доска"
-      timenow: "Время сейчас: "
+      welcomes1: "Учись с нами!"
+      welcomes2: "Учись с Memory Cards!"
+      welcomes3: "Используйте наш онлайн-конструктор для создания собственных наборов образовательных или информационных карточек для любых целей"
+      boards: "Начать"
   layouts:
     _header:
       memory: "Memory Card"
