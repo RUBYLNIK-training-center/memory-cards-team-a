@@ -21,7 +21,20 @@ Style/FrozenStringLiteralComment:
 Metrics/BlockLength:
   Exclude:
     - spec/routing
-  Max: 50
+  Max: 130
 
 Metrics/MethodLength:
   Max: 100
+
+LetSetup:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
+
+ExampleLength:
+  Max: 10
+
+Metrics/AbcSize:
+  Exclude:
+    - 'spec/support/controller_helpers.rb'

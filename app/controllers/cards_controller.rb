@@ -44,17 +44,6 @@ class CardsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cards/1
-  def update
-    respond_to do |format|
-      if @card.update(card_params)
-        format.html { redirect_to board_card_path(@board), notice: 'Card was successfully updated.' }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /cards/1
   def destroy
     @card.destroy
