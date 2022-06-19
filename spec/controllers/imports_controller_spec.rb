@@ -86,16 +86,14 @@ RSpec.describe ImportsController, type: :controller do
         expect{
           post :create, params: { :import => { user_id: user.id, file: correct_file } }
         }.to change(Import, :count).by(1)
-        puts Import.last.inspect
       end
     end
 
     context 'with inalid structure of csv' do
       it 'redirects to imports path' do
-        expect{
+        expect(
           post :create, params: { :import => { user_id: user.id, file: incorrect_file } }
-        }.to change(Import, :count).by(1)
-        puts Import.last.inspect
+        ).to redirect_to(imports_url)
       end
     end
 

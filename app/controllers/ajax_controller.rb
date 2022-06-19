@@ -6,16 +6,12 @@ class AjaxController < ApplicationController
     @card.attributes = card_params
     if @card.save
       render json: @card.confidence_level, status: 200
-    else
-      render json: 'Error', status: 404
     end
   end
 
   def update_card_throw_modal
     if @card.update(card_params)
       render json: 'Good', status: 200
-    else
-      render json: 'Error', status: 404
     end
   end
 
