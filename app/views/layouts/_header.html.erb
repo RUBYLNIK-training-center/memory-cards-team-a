@@ -23,6 +23,7 @@
             <% else %>
               <%= image_tag "users/default_image.png",  alt: 'img', class: "round" %>
             <% end %>
+            <span id='premium' class="badge rounded-pill bg-primary">Premium</span>
           <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
           <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
         <% else %>
