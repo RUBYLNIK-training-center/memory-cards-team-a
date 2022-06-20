@@ -24,7 +24,7 @@
               <%= image_tag "users/default_image.png",  alt: 'img', class: "round" %>
             <% end %>
             <% if current_user.account_type == 'premium' %>
-              <span id='premium' class="badge rounded-pill bg-primary">Premium</span>
+              <span id='premium' class="badge rounded-pill bg-primary"><%= t('enumerize.user.account_type') %></span>
             <% end %>
           <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
           <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>

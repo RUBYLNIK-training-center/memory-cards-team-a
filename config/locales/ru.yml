@@ -113,4 +113,6 @@ ru:
       question: "Вопрос"
       answer: "Ответ"
       save_change: "Сохранить"
-
+  enumerize:
+    user:
+      account_type: "Премиум"
