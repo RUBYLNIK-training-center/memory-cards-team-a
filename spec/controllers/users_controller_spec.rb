@@ -38,4 +38,12 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  describe 'PUT update_account_type' do
+    it 'upgrades user account type to premium' do
+      expect(
+        put(:update_account_type)
+      ).to have_http_status(:ok)
+    end
+  end
 end
