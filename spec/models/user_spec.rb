@@ -18,6 +18,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'enumerize' do
-    it { should enumerize(:account_type).in(:standard, :premium) }
+    it { is_expected.to enumerize(:account_type).in(:standard, :premium) }
   end
 end
