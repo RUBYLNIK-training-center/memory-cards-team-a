@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  extend Enumerize
+
+  enumerize :account_type, in: [:standard, :premium], default: :standard
   has_many :boards, dependent: :destroy
   has_many :imports
   devise :database_authenticatable, :registerable,

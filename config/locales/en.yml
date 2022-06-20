@@ -113,6 +113,6 @@ en:
       question: "Question"
       answer: "Answer"
       save_change: "Save Change"
-
-
-
+  enumerize:
+    user:
+      account_type: "Premium"
