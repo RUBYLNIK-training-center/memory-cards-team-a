@@ -3,7 +3,8 @@ class ActivatePremiumAccount
     @user = user
   end
 
-  def call # rubocop:disable Metrics/AbcSize
+  def call
     @user.update(account_type: 'premium')
+    true
   end
 end

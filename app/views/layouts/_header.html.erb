@@ -19,14 +19,14 @@
             <% if current_user.avatar.present? %>
               <%= image_tag(current_user.avatar, style: "width: 40px; length: 50px; margin: 10px", class: "round")  %>
             <% elsif current_user.image? %>
-              <%= image_tag current_user.image, class: "round"   %>
+              <%= image_tag current_user.image, class: "round me-1"   %>
             <% else %>
-              <%= image_tag "users/default_image.png",  alt: 'img', class: "round" %>
+              <%= image_tag "users/default_image.png",  alt: 'img', class: "round me-1" %>
             <% end %>
             <% if current_user.account_type == 'premium' %>
               <span id='premium' class="badge rounded-pill bg-primary"><%= t('enumerize.user.account_type') %></span>
             <% end %>
-          <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
+          <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-2" %>
           <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
         <% else %>
           <%= link_to t("layouts._header.signin"), new_user_session_path, class:"btn btn-outline-light me-2" %>

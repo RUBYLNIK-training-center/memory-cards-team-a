@@ -17,4 +17,20 @@
   </div>
 </div>
 
-<%= link_to 'Upgrade to Premium', method: :update_account_type, class: "btn btn-danger" %>
+<% if current_user.account_type == 'standard' %>
+  <button onclick='funcionForUpdateAccauntType()' class="btn btn-success">Upgrade to Premium</button>
+<% end %>
+
+<script>
+  function funcionForUpdateAccauntType() {
+    let http = new XMLHttpRequest();
+    http.open('PUT', `/user/update_account_type`, true);
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.onreadystatechange = function() {
+      if(http.readyState == 4 && http.status == 200) {
+        location.reload();
+      }
+    }
+    http.send('');
+  }
+</script>

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token
 
   def edit
     @user = current_user
@@ -18,7 +19,11 @@ class UsersController < ApplicationController
 
   def update_account_type
     @user = current_user
-    ActivatePremiumAccount.call(user: @user)
+    respond_to do |format|
+      if ActivatePremiumAccount.new(user: @user).call
+        format.html { redirect_to root_path, notice: 'User was upgraded to Premium plan.', status: 200 }
+      end
+    end
   end
 
   private
