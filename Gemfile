@@ -25,7 +25,7 @@ gem 'activerecord-session_store'
 gem "omniauth-rails_csrf_protection"
 gem "google-cloud-storage", "~> 1.8", require: false
 gem 'sidekiq', '~>6.5.0'
-gem 'rails-controller-testing'
+gem 'enumerize'
 
 
 group :development, :test do
