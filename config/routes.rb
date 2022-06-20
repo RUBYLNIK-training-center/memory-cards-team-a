@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resource :user, only: [:edit] do
       collection do
         patch 'update_password'
+        put 'update_account_type'
       end
     end
     patch '/cards/:id', to: 'ajax#change_confidence_level'

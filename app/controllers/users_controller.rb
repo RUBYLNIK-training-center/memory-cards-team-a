@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_account_type
+    @user = current_user
+    ActivatePremiumAccount.call(user: @user)
+  end
+
   private
 
   def user_params
