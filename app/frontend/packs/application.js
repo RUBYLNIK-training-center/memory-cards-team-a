@@ -11,9 +11,3 @@ import('js/site')
 import '../js/site.js'
 const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)
-
-setTimeout(function(){
-  if(document.getElementById('message') != null) {
-	  document.getElementById('message').style.display = 'none';
-  }
-}, 5000);
