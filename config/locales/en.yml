@@ -1,7 +1,12 @@
 en:
   en: "En"
   ru: "Ru"
+
   activerecord:
+    models:
+      card: Card
+      board: Board
+      import: Import
     attributes:
       user:
         name: "Name"
@@ -66,6 +71,7 @@ en:
       newboard: "New Board"
       boards: "Boards"
       import_cards: "Cards Import"
+      are_you_sure: 'Are you sure?'
     new:
       new_board: "New Board"
       back: "Back"
@@ -98,6 +104,9 @@ en:
       show: "Show"
       edit: "Edit"
       destroy: "Destroy"
+      new_import: "New Import"
+      download_template: "Downloads Template"
+      are_you_sure: 'Are you sure?'
     new:
       new_import: "New import"
       back: "Back"
@@ -109,10 +118,17 @@ en:
       show: "Show"
       destroy: "Destroy"
       edit: "Edit"
-      edit_card: "Edit Card #"
+      edit_card: "Edit Card # %{card_id}"
       question: "Question"
       answer: "Answer"
       save_change: "Save Change"
+      export: "Export CSV"
+      are_you_sure: 'Are you sure?'
+    new:
+      new_card: "New Card"
+      back: "Back"
+    show:
+      back: "Back"
   enumerize:
     user:
       account_type: "Premium"

@@ -1,7 +1,13 @@
 ru:
   en: "En"
   ru: "Ru"
+  forms:
+    browse: "Привет"
   activerecord:
+    models:
+      card: "карточку"
+      board: "доску"
+      import: "импорт"
     attributes:
       user:
         name: "Имя"
@@ -66,6 +72,7 @@ ru:
       newboard: "Новая доска"
       boards: "Доски"
       import_cards: "Импорт карточек"
+      are_you_sure: 'Вы уверены?'
     new:
       new_board: "Новая доска"
       back: "Назад"
@@ -98,6 +105,9 @@ ru:
       show: "Показать"
       edit: "Редактировать"
       destroy: "Удалить"
+      new_import: "Импорт"
+      download_template: "Скачать Шаблон"
+      are_you_sure: 'Вы уверены?'
     new:
       new_import: "Импорт"
       back: "Назад"
@@ -113,6 +123,13 @@ ru:
       question: "Вопрос"
       answer: "Ответ"
       save_change: "Сохранить"
+      export: "Экспорт CSV"
+      are_you_sure: 'Вы уверены?'
+    new:
+      new_card: "Новая карточка"
+      back: "Назад"
+    show:
+      back: "Назад"
   enumerize:
     user:
       account_type: "Премиум"
