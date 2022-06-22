@@ -6,7 +6,7 @@ class CardsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def learn
-    @cards = @board.cards
+    @cards = @board.cards.order(created_at: :asc)
     if @cards.first.nil?
       redirect_to board_cards_path(@board), notice: 'First, create a card.'
     else
