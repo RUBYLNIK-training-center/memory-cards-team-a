@@ -1,53 +1,49 @@
-<header class="p-3 bg-dark text-white">
+<header class="p-3 bg-dark text-white crrHeader">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
       </a>
 
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <%= link_to t("layouts._header.memory") , root_path, class:"nav-link px-2 text-secondary" %>
-        <%= link_to t("layouts._header.boards") , boards_path, class:"nav-link px-2 text-white" %>
-        <%= link_to t("layouts._header.emanual") , instructions_path, class:"nav-link px-2 text-white" %>
-        <%#= link_to "Sign in with Github", user_github_omniauth_authorize_path, method: :post %>
-        <%#= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post %>
-      </ul>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 hMemoryCards"></ul>
 
       <div class="text-end">
         <% if user_signed_in? %>
           <%= current_user.name.try(:empty?) ? current_user.email : t("layouts._header.hello") + [current_user.name,current_user.surname].map(&:to_s).join(' ')  %>
-            <% if current_user.avatar.present? %>
-              <%= image_tag(current_user.avatar, style: "width: 40px; length: 50px; margin: 10px", class: "round")  %>
-            <% elsif current_user.image? %>
-              <%= image_tag current_user.image, class: "round"   %>
-            <% else %>
-              <%= image_tag "users/default_image.png",  alt: 'img', class: "round" %>
-            <% end %>
-            <% if current_user.account_type == 'premium' %>
-              <span id='premium' class="badge rounded-pill bg-primary"><%= t('enumerize.user.account_type') %></span>
-            <% end %>
-          <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
-          <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
+        <% if current_user.avatar.present? %>
+          <%= image_tag(current_user.avatar, style: "width: 40px; length: 50px; margin: 10px", class: "round")  %>
+        <% elsif current_user.image? %>
+          <%= image_tag current_user.image, class: "round"   %>
+        <% else %>
+          <%= image_tag "users/default_image.png",  alt: ' img', class: "round" %>
+        <% end %>
+        <% if current_user.account_type=='premium' %>
+          <span id='premium' class="badge rounded-pill bg-primary">
+            <%= t('enumerize.user.account_type') %>
+          </span>
+        <% end %>
+        <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-4" %>
+        <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
         <% else %>
           <%= link_to t("layouts._header.signin"), new_user_session_path, class:"btn btn-outline-light me-2" %>
           <%= link_to t("layouts._header.signup"), new_user_registration_path, class:"btn btn-warning" %>
         <% end %>
       </div>
 
-      <%= link_to '#', class: 'nav-link px-2 dropdown-toggle text-white',
-                  data: {"bs-toggle": 'dropdown'} do %>
-        <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
+      <%= link_to '#' , class: 'nav-link px-2 dropdown-toggle text-white MCHeder' , data: {"bs-toggle": 'dropdown' } do %>
+        <%= tag.div '' , class: "flag #{I18n.locale}-flag mt-1" %>
         <%= t I18n.locale %>
       <% end %>
 
       <div class="dropdown-menu">
         <% I18n.available_locales.each do |locale| %>
           <li>
-            <% if I18n.locale == locale %>
-              <%= tag.span t(locale), class: 'dropdown-item' %>
+            <% if I18n.locale==locale %>
+              <%= tag.span t(locale), class: 'dropdown-item MCHeder' %>
             <% else %>
-              <%= link_to t(locale), url_for(locale: locale),
-                          class: 'dropdown-item' %>
+              <%= link_to t(locale), url_for(locale: locale), class: 'dropdown-item MCHeder' %>
             <% end %>
           </li>
         <% end %>
@@ -57,9 +53,292 @@
 </header>
 
 <style>
-    .round {
-        width: 40px; height: 40px;
-        border-radius: 50%;
-        margin-left: 10px;
-    }
+  .round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+
+  .MCHeder {
+    font-family: cursive;
+  }
+
+  .crrHeader {
+    margin-bottom: 12px
+  }
 </style>
+
+<script>
+  window.addEventListener('load', function (event) {
+    let locale = window.location.pathname.split('/')[1];
+    let path = window.location.pathname.split('/');
+    let place = document.getElementsByClassName('hMemoryCards')[0];
+
+    if (path.includes('users')) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      a3.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.edit_user') %>";
+      a3.href = `/${locale}/users/edit`;
+      place.append(a3);
+    }
+
+    if (path.includes('user')) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      a3.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.edit_user') %>";
+      a3.href = `/${locale}/users/edit`;
+      place.append(a3);
+
+      let a4 = document.createElement('a');
+      a4.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a4.innerHTML = "<%= t('users.edit.update') %>";
+      a4.href = `/${locale}/user/edit`;
+      place.append(a4);
+    }
+
+    if (path.includes('boards') && !path.includes('cards') && !path.includes('learning') && !path.includes('edit') && !path.includes('new')) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+    }
+
+    if (path.includes('boards') && path.includes('new') && !path.includes('cards')) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      let path = window.location.pathname.split('/').filter(Number);
+      a3.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.new_board') %>";
+      a3.href = `/${locale}/boards/new`;
+      place.append(a3);
+    }
+
+    if (path.includes('boards') && path.includes('edit')) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      let path = window.location.pathname.split('/').filter(Number);
+      a3.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.edit_board') %>";
+      a3.href = `/${locale}/boards/${path[0]}/edit`;
+      place.append(a3);
+    }
+
+    if (path.includes('cards') && window.location.pathname.split('/').filter(Number).length != 2 && !path.includes('new')) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      let path = window.location.pathname.split('/').filter(Number);
+      a3.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.cards') %>";
+      a3.href = `/${locale}/boards/${path[0]}/cards`;
+      place.append(a3);
+    }
+
+    if (path.includes('boards') && path.includes('cards') && path.includes('new')) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      let path = window.location.pathname.split('/').filter(Number);
+      a3.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.cards') %>";
+      a3.href = `/${locale}/boards/${path[0]}/cards`;
+      place.append(a3);
+
+      let a4 = document.createElement('a');
+      a4.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a4.innerHTML = "<%= t('layouts._header.new_card') %>";
+      a4.href = `/${locale}/boards/${path[0]}/cards/new`;
+      place.append(a4);
+    }
+
+    if (window.location.pathname.split('/').filter(Number).length == 2) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      let path = window.location.pathname.split('/').filter(Number);
+      a3.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.cards') %>";
+      a3.href = `/${locale}/boards/${path[0]}/cards`;
+      place.append(a3);
+
+      let a4 = document.createElement('a');
+      a4.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a4.innerHTML = "<%= t('layouts._header.show_card') %>";
+      a4.href = `/${locale}/boards/${path[0]}/cards/${path[1]}`;
+      place.append(a4);
+    }
+
+    if (path.includes('imports') && !path.includes('new')) {
+      locale = window.location.href.split('=')[1];
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      a3.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.import') %>";
+      a3.href = `/imports?locale=${locale}`;
+      place.append(a3);
+    }
+
+    if (path.includes('imports') && path.includes('new')) {
+      locale = window.location.href.split('=')[1];
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      a3.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.import') %>";
+      a3.href = `/imports?locale=${locale}`;
+      place.append(a3);
+
+      let a4 = document.createElement('a');
+      a4.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a4.innerHTML = "<%= t('layouts._header.new_import') %>";
+      a4.href = `/imports/new?locale=${locale}`;
+      place.append(a4);
+    }
+
+    if (path.includes('learning')) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      let path = window.location.pathname.split('/').filter(Number);
+      a3.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.lern_cards') %>";
+      a3.href = `/${locale}/boards/${path[0]}/learning`;
+      place.append(a3);
+    }
+
+    if (path.includes('instructions')) {
+      let a1 = document.createElement('a');
+      a1.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a1.innerHTML = "Memory cards";
+      a1.href = `/${locale}`;
+      place.append(a1);
+
+      let a2 = document.createElement('a');
+      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
+      a2.innerHTML = "<%= t('boards.index.boards') %>";
+      a2.href = `/${locale}/boards`
+      place.append(a2);
+
+      let a3 = document.createElement('a');
+      a3.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a3.innerHTML = "<%= t('layouts._header.instruction') %>";
+      a3.href = `/${locale}/instructions`;
+      place.append(a3);
+    }
+  });
+</script>
