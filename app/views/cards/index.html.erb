@@ -3,7 +3,7 @@
 <div class="d-flex bd-highlight mb-3">
   <div class="p-2 bd-highlight"><%= link_to t(".cards_new"), new_board_card_path(@board), class: "btn btn-primary mb-3" %></div>
   <div class="p-2 bd-highlight"><%= link_to t(".back"), boards_path, class: "btn btn-outline-secondary mb-3" %></div>
-  <div class="ms-auto p-2 bd-highlight"><%= link_to 'Export CSV', board_cards_path(@board, format: :csv), class: "btn btn-primary mb-3" %></div>
+  <div class="ms-auto p-2 bd-highlight"><%= link_to t('.export'), board_cards_path(@board, format: :csv), class: "btn btn-primary mb-3" %></div>
 </div>
 
 <% @cards.each do |card| %>
@@ -21,7 +21,7 @@
         <button onclick="funcionForEdit(this)" type="button" class="btn btn-primary card-id" data-bs-toggle="modal" data-bs-target="#exampleModal" value='<%= card.id %>'>
           <%= t(".edit") %>
         </button>
-        <%= link_to t(".destroy"), [@board, card], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <%= link_to t(".destroy"), [@board, card], method: :delete, data: { confirm: t('.are_you_sure') }, class: "btn btn-danger" %>
       </div>
     </div>
   </div>
@@ -81,7 +81,7 @@
   function funcionForEdit(card) {
     currrent_card_id = card.value;
     let params = '';
-    document.getElementById('exampleModalLabel').innerText = 'Edit Card # ' + currrent_card_id;
+    document.getElementById('exampleModalLabel').innerText =  '<%= t('.edit_card') %>' + currrent_card_id.toString();
     let path = window.location.pathname;
     let board_id = parseInt(path.replace(/[^\d]/g, ''));
     let http = new XMLHttpRequest();

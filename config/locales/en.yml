@@ -2,6 +2,10 @@ en:
   en: "En"
   ru: "Ru"
   activerecord:
+    models:
+      card: Card
+      board: Board
+      import: Import
     attributes:
       user:
         name: "Name"
@@ -17,6 +21,10 @@ en:
       import:
         file: "File"
   devise:
+    new:
+      forgot_your_password: 'Forgot your password?'
+      send_me_reset_password_instructions: "Send me reset password instructions"
+      email: "Email"
     registrations:
       edit: "Edit User"
       update: "Update"
@@ -66,6 +74,7 @@ en:
       newboard: "New Board"
       boards: "Boards"
       import_cards: "Cards Import"
+      are_you_sure: 'Are you sure?'
     new:
       new_board: "New Board"
       back: "Back"
@@ -98,6 +107,9 @@ en:
       show: "Show"
       edit: "Edit"
       destroy: "Destroy"
+      new_import: "New Import"
+      download_template: "Downloads Template"
+      are_you_sure: 'Are you sure?'
     new:
       new_import: "New import"
       back: "Back"
@@ -113,6 +125,40 @@ en:
       question: "Question"
       answer: "Answer"
       save_change: "Save Change"
+      export: "Export CSV"
+      are_you_sure: 'Are you sure?'
+    new:
+      new_card: "New Card"
+      back: "Back"
+    show:
+      back: "Back"
+  learn:
+    learn:
+      learn_page: 'Learning page'
+      back: 'Back'
   enumerize:
     user:
       account_type: "Premium"
+  controller:
+    boards:
+      board_create: "Board was successfully created."
+      board_update: 'Board was successfully updated.'
+      board_destroy: 'Board was successfully destroyed.'
+    cards:
+      card_create_first: 'First, create a card.'
+      card_create: 'Card was successfully created.'
+      card_destroy: 'Card was successfully destroyed.'
+      card_not_auth: 'Not Authorized to See this Card'
+    imports:
+      import_create: 'Import was successfully created.'
+      csv_file: 'csv file has an incorrect structure.'
+      import_update: 'Import was successfully updated.'
+      import_destroy: 'Import was successfully destroyed.'
+      import_not_auth: 'Not Authorized to See this Import'
+    omniauth_controllers:
+      error_github: 'There was a problem signing you in through Github. Please register or try signing in later.'
+      error_google: 'There was a problem signing you in through Google. Please register or try signing in later.'
+      error_failure: 'There was a problem signing you in. Please register or try signing in later.'
+
+
+

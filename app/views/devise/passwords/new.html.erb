@@ -1,17 +1,17 @@
-<h2>Forgot your password?</h2>
+<h2><%= t('devise.new.forgot_your_password') %></h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field form-group">
     <% f.label :email %><br />
-    <%= f.email_field :email, class:"form-control", placeholder:"Email",  autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, class:"form-control", placeholder: t("devise.new.email"),  autofocus: true, autocomplete: "email" %>
   </div>
 
   <br>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions", class:"btn btn-warning" %>
+    <%= f.submit t('devise.new.send_me_reset_password_instructions'), class:"btn btn-warning" %>
   </div>
 <% end %>
 
