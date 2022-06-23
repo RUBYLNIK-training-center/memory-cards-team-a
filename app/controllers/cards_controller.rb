@@ -8,7 +8,7 @@ class CardsController < ApplicationController
   def learn
     @cards = @board.cards.order(created_at: :asc)
     if @cards.first.nil?
-      redirect_to board_cards_path(@board), notice: 'First, create a card.'
+      redirect_to board_cards_path(@board), notice: t('controller.cards.card_create_first')
     else
       render 'learn/learn'
     end
@@ -37,7 +37,7 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       if @card.save
-        format.html { redirect_to board_cards_path(@board), notice: 'Card was successfully created.' }
+        format.html { redirect_to board_cards_path(@board), notice: t('controller.cards.card_create') }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -49,7 +49,7 @@ class CardsController < ApplicationController
     @card.destroy
 
     respond_to do |format|
-      format.html { redirect_to board_cards_path(@board), notice: 'Card was successfully destroyed.' }
+      format.html { redirect_to board_cards_path(@board), notice: t('controller.cards.card_destroy') }
     end
   end
 
@@ -57,7 +57,7 @@ class CardsController < ApplicationController
 
   def correct_user
     @cardz = current_user.boards.find_by(id: params[:board_id])
-    redirect_to boards_path, notice: 'Not Authorized to See this Card' if @cardz.nil?
+    redirect_to boards_path, notice: t('controller.cards.card_not_auth') if @cardz.nil?
   end
 
   def board

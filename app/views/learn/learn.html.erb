@@ -1,4 +1,4 @@
-<h1>Learning page</h1>
+<h1><%= t('.learn_page') %></h1>
 
 <div id="carouselExampleControls" class="carousel" data-bs-keyboard="true" data-bs-interval="false" data-bs-touch="true">
   <div class="carousel-indicators">
@@ -108,4 +108,4 @@
   });
 </script>
 
-<%= link_to 'Back', boards_path, class: "btn btn-outline-secondary mt-3" %>
+<%= link_to t('.back'), boards_path, class: "btn btn-outline-secondary mt-3" %>

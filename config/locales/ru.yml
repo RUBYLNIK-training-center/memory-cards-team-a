@@ -1,8 +1,6 @@
 ru:
   en: "En"
   ru: "Ru"
-  forms:
-    browse: "Привет"
   activerecord:
     models:
       card: "карточку"
@@ -23,6 +21,10 @@ ru:
       import:
         file: "Файл"
   devise:
+    new:
+      forgot_your_password: 'Забыли пароль?'
+      send_me_reset_password_instructions: 'Выслать новый пароль'
+      email: "Электронная почта"
     registrations:
       edit: "Редактирование Пользователя"
       update: "Обновить"
@@ -118,7 +120,7 @@ ru:
       back: "Назад"
       show: "Показать"
       destroy: "Удалить"
-      edit: "Редактировать"
+      edit: "Изменить"
       edit_card: "Редактировать карточку #"
       question: "Вопрос"
       answer: "Ответ"
@@ -130,6 +132,35 @@ ru:
       back: "Назад"
     show:
       back: "Назад"
+  learn:
+    learn:
+      learn_page: 'Изучение'
+      back: "Назад"
   enumerize:
     user:
       account_type: "Премиум"
+  controller:
+    boards:
+      board_create: "Доска успешно создана."
+      board_update: 'Доска успешно обновлена.'
+      board_destroy: 'Доска успешно удалена.'
+    cards:
+      card_create_first: 'Первая, карточка создана.'
+      card_create: 'Карточка успешно создана.'
+      card_destroy: 'Карточка успешно удалена.'
+      card_not_auth: 'Не авторизован для просмотра этой карты.'
+    imports:
+      import_create: 'Импорт успешно создан'
+      csv_file: 'CSV файл не правильной структуры'
+      import_update: 'Импорт успешно обновлен.'
+      import_destroy: 'Импорт успешно удален.'
+      import_not_auth: 'Не авторизован для просмотра импорта'
+    omniauth_controllers:
+      error_github: 'There was a problem signing you in through Github. Please register or try signing in later.'
+      error_google: 'There was a problem signing you in through Google. Please register or try signing in later.'
+      error_failure: 'There was a problem signing you in. Please register or try signing in later.'
+
+
+
+
+
