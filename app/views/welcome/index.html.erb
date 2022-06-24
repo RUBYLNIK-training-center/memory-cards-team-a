@@ -1,18 +1,574 @@
-<div class="container">
-  <br>
-  <br>
-  <div class="row">
-    <div class="col footer text-center py-4">
-      <h1><%= t('welcome.index.welcomes1') %> </h1>
-      <h3><%= t('welcome.index.welcomes2') %></h3>
-      <br>
-      <br>
-      <h6><%= t('welcome.index.welcomes3') %></h6>
-      <br>
-      <h3><%= link_to t('welcome.index.boards'), boards_path, class: "btn btn-warning" %></h3>
+<div class="section--learn-header learn-pattern">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <%= link_to '#', class: 'nav-link px-2 dropdown-toggle position-absolute top-0 end-0 len fs-5',
+                  data: {"bs-toggle": 'dropdown'} do %>
+        <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
+        <%= t I18n.locale %>
+      <% end %>
+
+      <div class="dropdown-menu">
+        <% I18n.available_locales.each do |locale| %>
+          <li>
+            <% if I18n.locale == locale %>
+              <%= tag.span t(locale), class: 'dropdown-item len' %>
+            <% else %>
+              <%= link_to t(locale), url_for(locale: locale),
+                          class: 'dropdown-item len' %>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+      <div class="logo position-absolute top-0 start-50 translate-middle-x">
+        Memory cards
+      </div>
     </div>
-    <div class="col">
-      <%= image_tag "main/main.png", style: "width: 600px; length: 600px" %>
+  </div>
+  
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <div class="learn-header">
+          <h1><%= t('welcome.index.text1') %></h1>
+          <p><%= t('welcome.index.text2') %><strong><%= t('welcome.index.text3') %></strong> <%= t('welcome.index.text4') %><strong><%= t('welcome.index.text5') %></strong><%= t('welcome.index.text6') %></p>
+          <% if user_signed_in? %>
+            <%= link_to t('welcome.index.boards'), boards_path, class: "btn btn-warning" %>
+          <% else %>
+            <%= link_to t('welcome.index.text48'), new_user_registration_path, class:"btn btn-primary"%>
+            <%= link_to t('welcome.index.text49'), new_user_session_path, class:"btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+  <div class="learn__separator"></div>
+</div>
+
+<div class="bg-red-400 text-white section--learn-intro" id="learn-intro">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-3"></div>
+      <div class="col-6" style="width: 62rem;">
+        <ul>
+          <input type="checkbox" class="custom-checkbox" id="happy" name="happy" value="yes" disabled="disabled">
+          <label for="happy"><%= t('welcome.index.text7') %></label>
+          <input type="checkbox" class="custom-checkbox" id="happy" name="happ2" value="yes" disabled="disabled">
+          <label for="happy2"><%= t('welcome.index.text8') %></label>
+          <input type="checkbox" class="custom-checkbox" id="happy" name="happy3" value="yes" disabled="disabled">
+          <label for="happy3"><%= t('welcome.index.text9') %></label>
+        </ul>
+        <h4 class="text-center"><%= t('welcome.index.text10') %></h4>
+        <p class="text-center"><%= t('welcome.index.text11') %></p>
+      </div>
+      <div class="col-3"></div>
     </div>
   </div>
 </div>
+<div class="notch">
+  <svg width="34" height="15" viewBox="0 0 34 15" xmlns="http://www.w3.org/2000/svg">
+    <path d="M.03.766h33.94l-14.968 13.41a3 3 0 0 1-4.004 0L.03.767z" fill="#FB6970" fill-rule="evenodd"></path>
+  </svg>
+</div>
+
+
+
+<div class="container">
+  <div class="img-hat"><img
+      data-src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/themes/ConvertKit/assets/images/icons/graduation-hand-drawn.svg"
+      loading="lazy"
+      src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/themes/ConvertKit/assets/images/icons/graduation-hand-drawn.svg"
+      data-ll-status="loaded"></div>
+
+
+  <div class="row num-3">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <h2><%= t('welcome.index.text12') %></h2>
+      <p><%= t('welcome.index.text13') %></p>
+    </div>
+    <div class="col-4"></div>
+  </div>
+
+
+  <div class="card border-success card1" style="width: 32rem;">
+    <div class="card-body">
+      <div class='img-tools'>
+        <img class="lazy loaded"
+          data-src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/themes/ConvertKit/assets/images/icons/build-hand-drawn.svg"
+          loading="lazy"
+          src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/themes/ConvertKit/assets/images/icons/build-hand-drawn.svg"
+          data-ll-status="loaded">
+      </div>
+      <h5 class="card-title text-success"><%= t('welcome.index.text14') %></h5>
+      <h2>Build</h2>
+      <div class="card-text">
+        <%= t('welcome.index.text15') %>
+        <ul>
+          <li><%= t('welcome.index.text16') %></li>
+          <li><%= t('welcome.index.text17') %></li>
+          <li><%= t('welcome.index.text18') %></li>
+        </ul>
+      </div>
+      <p><%= t('welcome.index.text19') %> • <%= t('welcome.index.text20') %></p>
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
+        <%= t('welcome.index.download') %>
+      </button>
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#i-frame-model">
+        <%= t('welcome.index.instruction') %>
+      </button>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModalCenter1" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle"><%= t('welcome.index.text21') %><span id='forGreenText'><%= t('welcome.index.text22') %></span></h5>
+      </div>
+      <div class="modal-body">
+        <%= link_to t('welcome.index.text23'), '/course_1_board_1.csv', download: 'course_1_board_1.csv', class: "btn btn-success btn-dwnld" %>
+        <%= link_to t('welcome.index.text24'), '/course_1_board_2.csv', download: 'course_1_board_2.csv', class: "btn btn-success btn-dwnld" %>
+        <%= link_to t('welcome.index.text25'), '/course_1_board_3.csv', download: 'course_1_board_3.csv', class: "btn btn-success btn-dwnld" %>
+        <%= link_to t('welcome.index.text26'), '/course_1_board_4.csv', download: 'course_1_board_4.csv', class: "btn btn-success btn-dwnld" %>
+        <%= link_to t('welcome.index.text27'), '/course_1_board_5.csv', download: 'course_1_board_5.csv', class: "btn btn-success btn-dwnld" %>
+        <%= link_to t('welcome.index.text28'), '/course_1_board_6.csv', download: 'course_1_board_6.csv', class: "btn btn-success btn-dwnld" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal"><%= t('welcome.index.text29') %></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade m2" id="i-frame-model" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content m2">
+      <div class="modal-body">
+
+
+              <div class="parent">
+                <iframe
+                  id='i-frame'
+                  class="child max"
+                  src="https://www.youtube.com/embed/iiLl_v-BzSM"
+                  title="YouTube video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal"><%= t('welcome.index.text29') %></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="img-line">
+    <img class="lazy loaded"
+      data-src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/themes/ConvertKit/assets/images/connecting-line.svg"
+      loading="lazy"
+      src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/themes/ConvertKit/assets/images/connecting-line.svg"
+      data-ll-status="loaded">
+  </div>
+
+  <div class="card border-danger card2" style="width: 32rem;">
+    <div class="card-body">
+      <div class='img-rocket'>
+        <img class="lazy loaded"
+          data-src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/themes/ConvertKit/assets/images/icons/launch-hand-drawn.svg"
+          loading="lazy"
+          src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/themes/ConvertKit/assets/images/icons/launch-hand-drawn.svg"
+          data-ll-status="loaded">
+      </div>
+      <h5 class="card-title text-danger"><%= t('welcome.index.text30') %></h5>
+      <h2>Launch</h2>
+      <div class="card-text">
+        <%= t('welcome.index.text31') %>
+        <ul>
+          <li><%= t('welcome.index.text32') %></li>
+          <li><%= t('welcome.index.text33') %></li>
+          <li><%= t('welcome.index.text34') %></li>
+        </ul>
+      </div>
+      <p><%= t('welcome.index.text35') %> • <%= t('welcome.index.text36') %></p>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter3">
+        <%= t('welcome.index.download') %>
+      </button>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#i-frame-model">
+        <%= t('welcome.index.instruction') %>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle"><%= t('welcome.index.text21') %><span id='forRedText'><%= t('welcome.index.text37') %></span></h5>
+      </div>
+      <div class="modal-body">
+        <%= link_to t('welcome.index.text23'), '/course_2_board_1.csv', download: 'course_2_board_1.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text24'), '/course_2_board_2.csv', download: 'course_2_board_2.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text25'), '/course_2_board_3.csv', download: 'course_2_board_3.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text26'), '/course_2_board_4.csv', download: 'course_2_board_4.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text27'), '/course_2_board_5.csv', download: 'course_2_board_5.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text28'), '/course_2_board_6.csv', download: 'course_2_board_6.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text38'), '/course_2_board_7.csv', download: 'course_2_board_7.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text39'), '/course_2_board_8.csv', download: 'course_2_board_8.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text40'), '/course_2_board_9.csv', download: 'course_2_board_9.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text41'), '/course_2_board_10.csv', download: 'course_2_board_10.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text42'), '/course_2_board_11.csv', download: 'course_2_board_11.csv', class: "btn btn-danger btn-dwnld" %>
+        <%= link_to t('welcome.index.text43'), '/course_2_board_12.csv', download: 'course_2_board_12.csv', class: "btn btn-danger btn-dwnld" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><%= t('welcome.index.text29') %></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="cnum-4 position-relative">
+  <div class="card card3 position-absolute top-50 start-50 translate-middle">
+    <div class="card-body text-center">
+      <h2 class="card-title fs-1"><%= t('welcome.index.text44') %><br><%= t('welcome.index.text45') %></h2>
+      <p class="card-text fs-5"><%= t('welcome.index.text46') %></p>
+      <p class="fs-5"><%= t('welcome.index.text47') %></p>
+      <% if user_signed_in? %>
+        <%= link_to t('welcome.index.boards'), boards_path, class: "btn btn-warning" %>
+      <% else %>
+        <%= link_to t('welcome.index.text48'), new_user_registration_path, class:"btn btn-success btn-lg" %>
+        <%= link_to t('welcome.index.text49'), new_user_session_path, class:"btn btn-success btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p class="col-md-4 mb-0 text-muted">© 2022 MemoryCards, Inc</p>
+
+    <% if I18n.locale == :ru %>
+      <a href="https://ru.wikipedia.org/wiki/%D0%91%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%B8%D1%8F"
+        target="_blank"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <%= t('welcome.index.text50') %> &#9829; <%= t('welcome.index.text51') %>
+      </a>
+    <% else %>
+      <a href="https://en.wikipedia.org/wiki/Belarus"
+        target="_blank"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <%= t('welcome.index.text50') %> &#9829; <%= t('welcome.index.text51') %>
+      </a>
+    <% end %>
+
+    <ul class="nav col-md-4 justify-content-end">
+      <li class="nav-item"><%= link_to t('welcome.index.text52'), root_path, class:"nav-link px-2 text-muted" %></li>
+      <li class="nav-item"><%= link_to t("layouts._header.emanual"), instructions_path, class:"nav-link px-2 text-muted" %></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted" data-bs-toggle="modal" data-bs-target="#exampleModalCenter4">
+        <%= t('welcome.index.text53') %>
+      </a></li>
+    </ul>
+  </footer>
+</div>
+
+<div class="modal fade" id="exampleModalCenter4" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle"><%= t('welcome.index.text53') %></span></h5>
+      </div>
+      <div class="modal-body">
+        <%= t('welcome.index.text54') %> <br>
+        <%= t('welcome.index.text55') %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><%= t('welcome.index.text29') %></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .len {
+    --text-opacity: 1;
+    color: black;
+    font-family: cursive;
+  }
+
+  #forRedText {
+    color: red;
+  }
+
+  #forGreenText {
+    color:green;
+  }
+
+  .btn-dwnld {
+    margin-bottom: 5px
+  }
+
+  .modal.fade.m2 {
+    margin-left: -9rem;
+  }
+
+  .modal-content.m2 {
+    width: 162%;
+  }
+
+  .parent {
+    height: 27rem;
+    width: 50rem;
+    overflow: auto;
+  }
+
+  /* Растягиваем второй блок на максимальнуцю ширину */
+  .child.max {
+    float: none;
+    width: 97%;
+    overflow: auto;
+    height: 107%;
+  }
+
+  .card3 .btn {
+    margin-top: 30px;
+  }
+
+  .card3 .card-body {
+    padding: 60px;
+  }
+
+  .card3 p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #373f45;
+    line-height: 1.7;
+    font-family: "Domine", serif;
+  }
+
+  .card3 h2 {
+    color: #212f4f;
+    font-weight: 600;
+    margin-top: -27px;
+    margin-bottom: 25px;
+    font-family: "Domine", serif;
+    line-height: 1.4;
+  }
+
+  .card3 {
+    border-radius: 15px;
+    width: 47rem;
+    height: 38rem;
+  }
+
+  .cnum-4 {
+    background-color: #fb6970;
+    height: 41rem;
+    margin-top: 50px;
+    padding-top: 5%;
+  }
+
+  .card1 {
+    margin-top: 50px;
+    text-align: center;
+    margin-left: 25%;
+  }
+
+  .card2 {
+    text-align: center;
+    margin-left: 48%;
+  }
+
+  .card-body {
+    text-align: left;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 20%);
+    padding: 30px;
+  }
+
+  .img-line {
+    text-align: center;
+  }
+
+  .img-hat {
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  .img-tools img {
+    position: absolute;
+    right: 50px;
+  }
+
+  .img-rocket img {
+    position: absolute;
+    right: 50px;
+  }
+
+  .course-info {
+    text-align: left;
+    border: 1px solid;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    padding: 30px;
+  }
+
+  .num-4 {
+    margin-left: 47%;
+    margin-top: 110px;
+  }
+
+  .course-testimonials {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .num-3 {
+    margin-top: 35px;
+    text-align: center;
+  }
+
+  .num-3 h2 {
+    font-family: "Domine", serif;
+    font-size: 1.944444444rem;
+    margin-bottom: 25px;
+    color: #212f4f;
+  }
+
+  .notch {
+    text-align: center;
+    margin-top: -0.5rem;
+  }
+
+  label {
+    margin-left: 10rem;
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+  }
+
+  .col-6>p,
+  h4 {
+    margin-left: 6rem;
+  }
+
+  .custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+
+  .custom-checkbox:disabled+label::before {
+    border-color: #0b76ef;
+    background-color: #0b76ef;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+  }
+
+  body>.container {
+    all: unset;
+  }
+
+  .col-6 {
+    z-index: 1;
+  }
+
+  .section--learn-header .logo {
+    color: white;
+    margin-top: 5px;
+    font-family: cursive;
+    font-size: 32px;
+    background-color: #212f4f;
+    border-radius: 9px 9px 9px 9px;
+    padding: 20px 30px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  }
+
+  .learn-pattern {
+    background-color: #f3f6f9;
+    background-image: url(https://convertkit.com/wp-content/themes/ConvertKit/assets/images/colorful-icon-pattern@2x.png);
+    background-size: 640px;
+    background-repeat: repeat;
+  }
+
+  .section--learn-header {
+    text-align: center;
+    padding-bottom: 150px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .learn-header {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    margin-top: 243px;
+    padding: 50px;
+  }
+
+  .learn__separator {
+    position: absolute;
+    height: 440px;
+    background: #fb6970;
+    left: 0;
+    right: 0;
+    bottom: -430px;
+    transform: skewY(-12deg);
+    transform-origin: left;
+  }
+
+  .section--learn-intro {
+    padding-bottom: 50px;
+  }
+
+  .text-white {
+    --text-opacity: 1 !important;
+    color: rgba(255, 255, 255, var(--text-opacity)) !important;
+  }
+
+  .bg-red-400 {
+    margin-top: -7px;
+    background-color: rgba(251, 105, 112, var(--bg-opacity)) !important;
+  }
+
+  .bg-red-300,
+  .bg-red-400 {
+    --bg-opacity: 1 !important;
+    height: 23rem;
+  }
+</style>
+
+<script>
+  let myModalEl = document.getElementById('i-frame-model')
+  myModalEl.addEventListener('hidden.bs.modal', function (event) {
+    frame = document.getElementById('i-frame');
+    frame.src = frame.src;
+  });
+</script>
