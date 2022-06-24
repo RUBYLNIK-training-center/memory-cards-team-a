@@ -34,4 +34,10 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
+def after_confirmation
+  WelcomesMailer.welcomes_send(self).deliver
+end
+
+
 end
