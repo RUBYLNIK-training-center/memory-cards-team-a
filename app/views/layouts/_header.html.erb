@@ -329,16 +329,10 @@
       place.append(a1);
 
       let a2 = document.createElement('a');
-      a2.className = "nav-link px-2 text-secondary fs-5 MCHeder";
-      a2.innerHTML = "<%= t('boards.index.boards') %>";
-      a2.href = `/${locale}/boards`
+      a2.className = "nav-link px-2 text-white fs-4 MCHeder";
+      a2.innerHTML = "<%= t('layouts._header.instruction') %>";
+      a2.href = `/${locale}/instructions`;
       place.append(a2);
-
-      let a3 = document.createElement('a');
-      a3.className = "nav-link px-2 text-white fs-4 MCHeder";
-      a3.innerHTML = "<%= t('layouts._header.instruction') %>";
-      a3.href = `/${locale}/instructions`;
-      place.append(a3);
     }
   });
 </script>
