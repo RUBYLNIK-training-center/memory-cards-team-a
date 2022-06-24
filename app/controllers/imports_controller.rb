@@ -26,10 +26,10 @@ class ImportsController < ApplicationController
     respond_to do |format|
       if @import.save
         if ImportJob.perform_now(simport: @import, suser: current_user)
-          format.html { redirect_to import_url(@import), notice: 'Import was successfully created.' }
+          format.html { redirect_to import_url(@import), notice: t('controller.imports.import_create') }
         else
           @import.destroy
-          format.html { redirect_to imports_url, notice: 'csv file has an incorrect structure.' }
+          format.html { redirect_to imports_url, notice: t('controller.imports.csv_file') }
         end
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class ImportsController < ApplicationController
   def update
     respond_to do |format|
       if @import.update(import_params)
-        format.html { redirect_to import_url(@import), notice: 'Import was successfully updated.' }
+        format.html { redirect_to import_url(@import), notice: t('controller.imports.import_update') }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -53,7 +53,7 @@ class ImportsController < ApplicationController
     @import.destroy
 
     respond_to do |format|
-      format.html { redirect_to imports_url, notice: 'Import was successfully destroyed.' }
+      format.html { redirect_to imports_url, notice: t('controller.imports.import_destroy') }
     end
   end
 
@@ -61,7 +61,7 @@ class ImportsController < ApplicationController
 
   def correct_user
     @importz = current_user.imports.find_by(id: params[:id])
-    redirect_to boards_path, notice: 'Not Authorized to See this Import' if @importz.nil?
+    redirect_to boards_path, notice: t('controller.imports.import_not_auth') if @importz.nil?
   end
 
   # Use callbacks to share common setup or constraints between actions.

@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :boards, dependent: :destroy
   has_many :imports
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
+         :recoverable, :rememberable, :validatable, :confirmable, 
          :omniauthable, omniauth_providers: %i[github google_oauth2]
   has_one_attached :avatar
 
@@ -34,4 +34,10 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
+def after_confirmation
+  WelcomesMailer.welcomes_send(self).deliver
+end
+
+
 end

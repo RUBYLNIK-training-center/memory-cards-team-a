@@ -1,10 +1,16 @@
-<h1>Learning page</h1>
-
-<div id="carouselExampleControls" class="carousel slide" data-bs-keyboard="true" data-bs-interval="false" data-bs-touch="true">
+<div id="carouselExampleControls" class="carousel" data-bs-keyboard="true" data-bs-interval="false"
+  data-bs-touch="true">
+  <div class="carousel-indicators">
+    <button onclick="functionForIndicators(this)" type="button" data-bs-target="#carouselExampleControls"
+      data-bs-slide-to="0" class="active" aria-current="true"></button>
+    <button onclick="functionForIndicators(this)" id='forCopy' type="button" data-bs-target="#carouselExampleControls"
+      data-bs-slide-to="1"></button>
+  </div>
   <div class="carousel-inner">
     <% @cards.each do |card| %>
       <div class="carousel-item bg-light p-5 rounded mt-3">
-        <p class="fs-3 fw-bolder" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <p class="fs-3 fw-bolder" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+          aria-expanded="false" aria-controls="collapseExample">
           <%= card.question %>
         </p>
 
@@ -22,26 +28,34 @@
                 <button onclick="myFunction(4)" type="button" class="btn btn-primary ms-2">4</button>
                 <button onclick="myFunction(5)" type="button" class="btn btn-success ms-2">5</button>
               </div>
-              <div class="d-flex justify-content-center mb-1">Current level of confidence: <%= card.confidence_level %></div>
+              <div class="d-flex justify-content-center mb-1">Current level of confidence: <%= card.confidence_level %>
+              </div>
             </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-  <button onclick="functionForCountDown()" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"></button>
-  <button onclick="functionForCountUp()" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"></button>
+  <button onclick="functionForCountDown()" class="carousel-control-prev" type="button"
+    data-bs-target="#carouselExampleControls" data-bs-slide="prev"></button>
+  <button onclick="functionForCountUp()" class="carousel-control-next" type="button"
+    data-bs-target="#carouselExampleControls" data-bs-slide="next"></button>
 </div>
 
 <script>
   let amount = document.getElementsByClassName('card-body').length;
   let count = 0;
 
-    function functionForClose() {
-      document.querySelectorAll('div.collapse').forEach(el => {
-        el.className = 'collapse';
-      });
-    }
+  function functionForIndicators(el) {
+    count = parseInt(el.getAttribute('data-bs-slide-to'));
+    functionForClose();
+  }
+
+  function functionForClose() {
+    document.querySelectorAll('div.collapse').forEach(el => {
+      el.className = 'collapse';
+    });
+  }
 
   function functionForCountUp() {
     count += 1;
@@ -59,7 +73,7 @@
     functionForClose();
   }
 
-  window.addEventListener('load', function(event) {
+  window.addEventListener('load', function (event) {
     if (document.querySelector("div.container div.carousel div.carousel-inner div.carousel-item") != null) {
       const el = document.querySelector("div.container div.carousel div.carousel-inner div.carousel-item");
       el.classList.add("active");
@@ -85,13 +99,24 @@
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     //Call a function when the state changes.
-    http.onreadystatechange = function() {
-      if(http.readyState == 4 && http.status == 200) {
+    http.onreadystatechange = function () {
+      if (http.readyState == 4 && http.status == 200) {
         level.innerText = 'Current level of confidence: ' + http.responseText;
       }
     }
     http.send(params);
   }
+
+  window.addEventListener('load', function (event) {
+    let indicator = document.getElementsByClassName('carousel-indicators')[0];
+    for (let i = 2; i < amount; i++) {
+      let el = document.getElementById('forCopy').cloneNode(true);
+      el.removeAttribute('id');
+      el.setAttribute('data-bs-slide-to', i.toString());
+      indicator.append(el);
+    }
+  });
 </script>
 
-<%= link_to 'Back', boards_path, class: "btn btn-outline-secondary mt-3" %>
+<%= link_to t('.back'), boards_path, class: "btn btn-outline-secondary mt-3" %>
+

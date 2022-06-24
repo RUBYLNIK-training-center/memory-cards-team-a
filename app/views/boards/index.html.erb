@@ -1,7 +1,6 @@
-<h1><%= t(".boards") %></h1>
-
-<div class="d-flex justify-content-end">
-  <%= link_to t(".import_cards"), imports_path, class: "btn btn-primary" %>
+<div class="d-flex bd-highlight mb-3">
+  <div class="p-2 bd-highlight"><%= link_to t('boards.index.newboard'), new_board_path, class: "btn btn-primary" %></div>
+  <div class="ms-auto p-2 bd-highlight"><%= link_to t(".import_cards"), imports_path, class: "btn btn-primary" %></div>
 </div>
 
 <table class="table">
@@ -21,7 +20,7 @@
           <td><%= link_to t('boards.index.learn'), board_learning_path(board), class: "text-decoration-none" %></td>
           <td><%= link_to t('boards.index.show'), board_cards_path(board), class: "text-decoration-none" %></td>
           <td><%= link_to t('boards.index.edit'), edit_board_path(board), class: "text-decoration-none" %></td>
-          <td><%= link_to t('boards.index.destroy'), board, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-decoration-none" %></td>
+          <td><%= link_to t('boards.index.destroy'), board, method: :delete, data: { confirm: t('.are_you_sure') }, class: "text-decoration-none" %></td>
         </tr>
       <% end %>
     <% end %>
@@ -29,5 +28,3 @@
 </table>
 
 <br>
-
-<%= link_to t('boards.index.newboard'), new_board_path, class: "btn btn-primary" %>

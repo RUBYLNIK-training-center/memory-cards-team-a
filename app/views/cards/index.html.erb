@@ -1,9 +1,13 @@
-<h1 class="text-center"><%= t(".cards") %></h1>
-
 <div class="d-flex bd-highlight mb-3">
-  <div class="p-2 bd-highlight"><%= link_to t(".cards_new"), new_board_card_path(@board), class: "btn btn-primary mb-3" %></div>
-  <div class="p-2 bd-highlight"><%= link_to t(".back"), boards_path, class: "btn btn-outline-secondary mb-3" %></div>
-  <div class="ms-auto p-2 bd-highlight"><%= link_to 'Export CSV', board_cards_path(@board, format: :csv), class: "btn btn-primary mb-3" %></div>
+  <div class="p-2 bd-highlight">
+    <%= link_to t(".cards_new"), new_board_card_path(@board), class: "btn btn-primary mb-3" %>
+  </div>
+  <div class="p-2 bd-highlight">
+    <%= link_to t(".back"), boards_path, class: "btn btn-outline-secondary mb-3" %>
+  </div>
+  <div class="ms-auto p-2 bd-highlight">
+    <%= link_to t('.export'), board_cards_path(@board, format: :csv), class: "btn btn-primary mb-3" %>
+  </div>
 </div>
 
 <% @cards.each do |card| %>
@@ -18,17 +22,18 @@
       </div>
       <div class="col-4">
         <%= link_to t(".show"), board_card_path(@board, card), class: "btn btn-secondary" %>
-        <button onclick="funcionForEdit(this)" type="button" class="btn btn-primary card-id" data-bs-toggle="modal" data-bs-target="#exampleModal" value='<%= card.id %>'>
-          <%= t(".edit") %>
-        </button>
-        <%= link_to t(".destroy"), [@board, card], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <button onclick="funcionForEdit(this)" type="button" class="btn btn-primary card-id" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" value='<%= card.id %>'>
+            <%= t(".edit") %>
+          </button>
+          <%= link_to t(".destroy"), [@board, card], method: :delete, data: { confirm: t('.are_you_sure') },
+            class: "btn btn-danger" %>
       </div>
     </div>
   </div>
 
-
-  <!-- Modal -->
-  <div onfocus="funcitonForFocus()" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div onfocus="funcitonForFocus()" class="modal fade" id="exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -38,15 +43,18 @@
         <div class="modal-body">
           <div class='row'>
             <div class="col-6 field">
-              <label for="textArea1"><%= t(".question") %></label>
+              <label for="textArea1">
+                <%= t(".question") %>
+              </label>
               <div class="autogrow">
                 <textarea class='form-control' id="textArea1">Your text</textarea>
-              </div>        
+              </div>
             </div>
 
-
             <div class="col-6 field">
-              <label for="textArea2"><%= t(".answer") %></label>
+              <label for="textArea2">
+                <%= t(".answer") %>
+              </label>
               <div class="autogrow">
                 <textarea class='form-control' id="textArea2">Your text</textarea>
               </div>
@@ -54,14 +62,14 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button onclick='funcionForSave()' id="but" type="button" class="btn btn-success" data-bs-dismiss="modal"><%= t(".save_change") %></button>
+          <button onclick='funcionForSave()' id="but" type="button" class="btn btn-success" data-bs-dismiss="modal">
+            <%= t(".save_change") %>
+          </button>
         </div>
       </div>
     </div>
   </div>
 <% end %>
-
-
 
 <script>
   let currrent_card_id;
@@ -72,8 +80,8 @@
       el.style.height = el.setAttribute('style', 'height: ' + el.scrollHeight + 'px');
       el.classList.add('auto');
       el.addEventListener('input', e => {
-          el.style.height = 'auto';
-          el.style.height = (el.scrollHeight) + 'px';
+        el.style.height = 'auto';
+        el.style.height = (el.scrollHeight) + 'px';
       });
     });
   };
@@ -81,14 +89,14 @@
   function funcionForEdit(card) {
     currrent_card_id = card.value;
     let params = '';
-    document.getElementById('exampleModalLabel').innerText = 'Edit Card # ' + currrent_card_id;
+    document.getElementById('exampleModalLabel').innerText =  '<%= t('.edit_card') %>' + currrent_card_id.toString();
     let path = window.location.pathname;
     let board_id = parseInt(path.replace(/[^\d]/g, ''));
     let http = new XMLHttpRequest();
     http.open('GET', `/boards/${board_id}/cards/${currrent_card_id}.json`, true);
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    http.onreadystatechange = function() {
-      if(http.readyState == 4 && http.status == 200) {
+    http.onreadystatechange = function () {
+      if (http.readyState == 4 && http.status == 200) {
         let full_card = JSON.parse(http.responseText);
         document.getElementById('textArea1').value = full_card.question;
         document.getElementById('textArea2').value = full_card.answer;
@@ -108,8 +116,8 @@
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     //Call a function when the state changes.
-    http.onreadystatechange = function() {
-      if(http.readyState == 4 && http.status == 200) {
+    http.onreadystatechange = function () {
+      if (http.readyState == 4 && http.status == 200) {
         location.reload();
       }
     }
@@ -119,10 +127,11 @@
 
 <style>
   textarea {
-      resize: none;
-      &.auto {
-          overflow-y: hidden;
-      }
+    resize: none;
+
+    &.auto {
+      overflow-y: hidden;
+    }
   }
 
   .modal-dialog.modal-lg {
