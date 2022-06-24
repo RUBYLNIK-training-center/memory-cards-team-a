@@ -16,10 +16,8 @@
       <%= render "layouts/header" %>
     <% end %>
     <div class="container">
-      <% if notice %>
-        <div style="position: relative;">
-          <%= render 'layouts/alerts' %>
-        </div>
+      <% if notice && !current_page?(root_path) %>
+        <%= render 'layouts/alerts' %>
       <% end %>
       <%= yield %>
     </div>

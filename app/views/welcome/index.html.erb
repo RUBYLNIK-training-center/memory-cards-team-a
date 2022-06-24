@@ -24,6 +24,25 @@
       </div>
     </div>
   </div>
+
+  <% if notice && current_page?(root_path) %>
+    <%= render 'layouts/alerts' %>
+  <% end %>
+
+  <style>
+    .alert.alert-success {
+      position: absolute;
+      height: 57px;
+      width: 650px;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      margin: auto;
+      margin-top: 183px;
+      opacity: .9;
+    }
+  </style>
   
   <div class="container">
     <div class="row d-flex justify-content-center">
