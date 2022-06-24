@@ -22,8 +22,8 @@ ru:
         file: "Файл"
   devise:
     new:
-      forgot_your_password: 'Забыли пароль?'
-      send_me_reset_password_instructions: 'Выслать новый пароль'
+      forgot_your_password: "Забыли пароль?"
+      send_me_reset_password_instructions: "Выслать новый пароль"
       email: "Электронная почта"
     registrations:
       edit: "Редактирование Пользователя"
@@ -74,7 +74,7 @@ ru:
       newboard: "Новая доска"
       boards: "Доски"
       import_cards: "Импорт карточек"
-      are_you_sure: 'Вы уверены?'
+      are_you_sure: "Вы уверены?"
     new:
       new_board: "Новая доска"
       back: "Назад"
@@ -164,6 +164,16 @@ ru:
       new_import: "Новый импорт"
       lern_cards: "Учить карточки"
       instruction: "Инструкция"
+      card_progress: "Прогресс карточек:"
+      undefined: "Не определено"
+      very_bad: "Очень плохо"
+      bad: "Плохо"
+      good: "Хорошо"
+      medium: "Средне"
+      perfect: "Идеально"
+      premium: "Премиум"
+      download: "Скачать"
+      download_title: "Премиум пользователя"
   imports:
     index:
       imp: "Импорт"
@@ -173,7 +183,7 @@ ru:
       destroy: "Удалить"
       new_import: "Импорт"
       download_template: "Скачать Шаблон"
-      are_you_sure: 'Вы уверены?'
+      are_you_sure: "Вы уверены?"
     new:
       new_import: "Импорт"
       back: "Назад"
@@ -190,7 +200,7 @@ ru:
       answer: "Ответ"
       save_change: "Сохранить"
       export: "Экспорт CSV"
-      are_you_sure: 'Вы уверены?'
+      are_you_sure: "Вы уверены?"
     new:
       new_card: "Новая карточка"
       back: "Назад"
@@ -198,7 +208,7 @@ ru:
       back: "Назад"
   learn:
     learn:
-      learn_page: 'Изучение'
+      learn_page: "Изучение"
       back: "Назад"
   enumerize:
     user:
@@ -206,25 +216,20 @@ ru:
   controller:
     boards:
       board_create: "Доска успешно создана."
-      board_update: 'Доска успешно обновлена.'
-      board_destroy: 'Доска успешно удалена.'
+      board_update: "Доска успешно обновлена."
+      board_destroy: "Доска успешно удалена."
     cards:
-      card_create_first: 'Первая, карточка создана.'
-      card_create: 'Карточка успешно создана.'
-      card_destroy: 'Карточка успешно удалена.'
-      card_not_auth: 'Не авторизован для просмотра этой карты.'
+      card_create_first: "Первая, карточка создана."
+      card_create: "Карточка успешно создана."
+      card_destroy: "Карточка успешно удалена."
+      card_not_auth: "Не авторизован для просмотра этой карты."
     imports:
-      import_create: 'Импорт успешно создан'
-      csv_file: 'CSV файл не правильной структуры'
-      import_update: 'Импорт успешно обновлен.'
-      import_destroy: 'Импорт успешно удален.'
-      import_not_auth: 'Не авторизован для просмотра импорта'
+      import_create: "Импорт успешно создан"
+      csv_file: "CSV файл не правильной структуры"
+      import_update: "Импорт успешно обновлен."
+      import_destroy: "Импорт успешно удален."
+      import_not_auth: "Не авторизован для просмотра импорта"
     omniauth_controllers:
-      error_github: 'There was a problem signing you in through Github. Please register or try signing in later.'
-      error_google: 'There was a problem signing you in through Google. Please register or try signing in later.'
-      error_failure: 'There was a problem signing you in. Please register or try signing in later.'
-
-
-
-
-
+      error_github: "There was a problem signing you in through Github. Please register or try signing in later."
+      error_google: "There was a problem signing you in through Google. Please register or try signing in later."
+      error_failure: "There was a problem signing you in. Please register or try signing in later."

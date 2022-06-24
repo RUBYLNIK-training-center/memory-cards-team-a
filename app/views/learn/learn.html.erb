@@ -109,7 +109,7 @@
 
   window.addEventListener('load', function (event) {
     let indicator = document.getElementsByClassName('carousel-indicators')[0];
-    for (let i = 2; i < amount; i++) {
+    for (let i = 2; i < amount - 1; i++) {
       let el = document.getElementById('forCopy').cloneNode(true);
       el.removeAttribute('id');
       el.setAttribute('data-bs-slide-to', i.toString());
