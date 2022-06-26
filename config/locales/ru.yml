@@ -210,6 +210,8 @@ ru:
     learn:
       learn_page: "Изучение"
       back: "Назад"
+      question: "Насколько хорошо я это знал?"
+      level: "Текущий уровень уверенности: "
   enumerize:
     user:
       account_type: "Премиум"

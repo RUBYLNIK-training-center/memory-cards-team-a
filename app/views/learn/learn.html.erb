@@ -16,11 +16,11 @@
 
         <div class="collapse" id="collapseExample">
           <div class="card text-dark bg-light">
-            <div class="card-body" value='<%= card.id %>'>
+            <div class="card-body lern" value='<%= card.id %>'>
               <%= markdown(card.answer) %>
             </div>
             <div>
-              <div class="d-flex justify-content-center mb-2">How well did I know it?</div>
+              <div class="d-flex justify-content-center mb-2"><%= t('learn.learn.question') %></div>
               <div class="d-flex justify-content-center">
                 <button onclick="myFunction(1)" type="button" class="btn btn-danger">1</button>
                 <button onclick="myFunction(2)" type="button" class="btn btn-warning ms-2">2</button>
@@ -28,7 +28,12 @@
                 <button onclick="myFunction(4)" type="button" class="btn btn-primary ms-2">4</button>
                 <button onclick="myFunction(5)" type="button" class="btn btn-success ms-2">5</button>
               </div>
-              <div class="d-flex justify-content-center mb-1">Current level of confidence: <%= card.confidence_level %>
+              <div class="d-flex justify-content-center mb-1"><%= t('learn.learn.level') %><% if I18n.locale == :en %>
+                <%= card.confidence_level %>
+              <% else %>
+                <% hash = { "undefined" => "не определено", "very_bad" => "очень плохо", "bad" => "плохо", "medium" => "средне", "good" => "хорошо", "perfect" => "идеально" } %>
+                <%= hash[card.confidence_level]%>
+              <% end %>
               </div>
             </div>
           </div>
@@ -43,7 +48,7 @@
 </div>
 
 <script>
-  let amount = document.getElementsByClassName('card-body').length;
+  let amount = document.getElementsByClassName('card-body lern').length;
   let count = 0;
 
   function functionForIndicators(el) {
@@ -84,10 +89,10 @@
     let card;
     let level;
     if (count >= 0) {
-      card = document.getElementsByClassName('card-body')[count].getAttribute("value");
+      card = document.getElementsByClassName('card-body lern')[count].getAttribute("value");
       level = document.getElementsByClassName('d-flex justify-content-center mb-1')[count];
     } else if (count < 0) {
-      card = document.getElementsByClassName('card-body')[amount + count].getAttribute("value");
+      card = document.getElementsByClassName('card-body lern')[amount + count].getAttribute("value");
       level = document.getElementsByClassName('d-flex justify-content-center mb-1')[amount + count];
     }
     let confidence_level = ['undefined', 'very_bad', 'bad', 'medium', 'good', 'perfect'];
@@ -101,7 +106,13 @@
     //Call a function when the state changes.
     http.onreadystatechange = function () {
       if (http.readyState == 4 && http.status == 200) {
-        level.innerText = 'Current level of confidence: ' + http.responseText;
+        level.innerText = "<%= t('learn.learn.level') %>" + http.responseText;
+        <% if I18n.locale == :en %>
+          level.innerText = "<%= t('learn.learn.level') %>" + http.responseText;
+        <% else %>
+          const lang = { "undefined": "не определено", "very_bad": "очень плохо", "bad": "плохо", "medium": "средне", "good": "хорошо", "perfect": "идеально" };
+          level.innerText = "<%= t('learn.learn.level') %>" + lang[http.responseText];
+        <% end %>
       }
     }
     http.send(params);

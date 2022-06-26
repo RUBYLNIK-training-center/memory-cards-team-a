@@ -56,78 +56,79 @@
   </div>
 </header>
 
-<% hash = { "undefined" => 0, "very_bad" => 0, "bad" => 0, "medium" => 0, "good" => 0, "perfect" => 0 } %>
-<% current_user.boards.each do |board| %>
-  <% board.cards.each do |card| %>
-    <% hash[card.confidence_level] += 1 %>
-  <% end %>
-<% end %>
-
 <% if user_signed_in? %>
-<div class="modal fade" id="ModalForProfile" tabindex="-1" aria-labelledby="ModalForProfileTitle" style="display: none;" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      
-      <div class="modal-body">
+  <% hash = { "undefined" => 0, "very_bad" => 0, "bad" => 0, "medium" => 0, "good" => 0, "perfect" => 0 } %>
+  <% current_user.boards.each do |board| %>
+    <% board.cards.each do |card| %>
+      <% hash[card.confidence_level] += 1 %>
+    <% end %>
+  <% end %>
 
-        <section>
-          <div class="container">
-            <div class="row d-flex justify-content-center align-items-center">
-              <div class="col col-md-9 col-lg-7 col-xl-12">
-                <div class="card" style="border-radius: 15px;">
-                  <div class="card-body p-4">
-                    <div class="d-flex text-black">
-                      <div class="flex-shrink-0">
-                        <% if current_user.avatar.present? %>
-                          <%= image_tag(current_user.avatar, style: "width: 180px; border-radius: 10px;", class: "img-fluid") %>
-                        <% elsif current_user.image? %>
-                          <%= image_tag current_user.image, style: "width: 180px; border-radius: 10px;", class: "img-fluid"  %>
-                        <% else %>
-                          <%= image_tag "users/default_image.png", style: "width: 180px; border-radius: 10px;", class: "img-fluid" %>
-                        <% end %>
-                      </div>
-                      <div class="flex-grow-1 ms-3">
-                        <h5 class="mb-1"><%= current_user.name.try(:empty?) ? current_user.email : [current_user.name,current_user.surname].map(&:to_s).join(' ')  %></h5>
-                        <p class="mb-2 pb-1" style="color: #2b2a2a;"><%= t('layouts._header.card_progress') %></p>
-                        <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
-                          style="background-color: #efefef;">
-                          <div>
-                            <div>
-                              <p class="small text-muted mb-1"><%= t('layouts._header.undefined') %></p>
-                              <p class="mb-1"><%= hash["undefined"] %></p>
-                            </div>
-                            <div class="me-5">
-                              <p class="small text-muted mb-1"><%= t('layouts._header.very_bad') %></p>
-                              <p class="mb-1"><%= hash["very_bad"] %></p>
-                            </div>
-                            <div>
-                              <p class="small text-muted mb-1"><%= t('layouts._header.bad') %></p>
-                              <p class="mb-1"><%= hash["bad"] %></p>
-                            </div>
-                          </div>
-                          <div>
-                            <div>
-                              <p class="small text-muted mb-1"><%= t('layouts._header.good') %></p>
-                              <p class="mb-1"><%= hash["good"] %></p>
-                            </div>
-                            <div>
-                              <p class="small text-muted mb-1"><%= t('layouts._header.medium') %></p>
-                              <p class="mb-1"><%= hash["medium"] %></p>
-                            </div>
-                            <div>
-                              <p class="small text-muted mb-1"><%= t('layouts._header.perfect') %></p>
-                              <p class="mb-1"><%= hash["perfect"] %></p>
-                            </div>
-                          </div>
-                          
-                        </div>
-                        <div class="d-flex pt-1">
-                          <% if user_signed_in? && current_user.account_type == 'standard' %>
-                            <button onclick='funcionForUpdateAccauntType()' type="button" class="btn btn-outline-primary me-1 flex-grow-1"><%= t('layouts._header.premium') %></button>
+  <div class="modal fade" id="ModalForProfile" tabindex="-1" aria-labelledby="ModalForProfileTitle" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+
+          <section>
+            <div class="container">
+              <div class="row d-flex justify-content-center align-items-center">
+                <div class="col col-md-9 col-lg-7 col-xl-12">
+                  <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-4">
+                      <div class="d-flex text-black">
+                        <div class="flex-shrink-0">
+                          <% if current_user.avatar.present? %>
+                            <%= image_tag(current_user.avatar, style: "width: 180px; border-radius: 10px;", class: "img-fluid") %>
+                          <% elsif current_user.image? %>
+                            <%= image_tag current_user.image, style: "width: 180px; border-radius: 10px;", class: "img-fluid"  %>
                           <% else %>
-                            <button type="button" class="btn btn-outline-primary me-1 flex-grow-1" data-bs-toggle="modal" data-bs-target="#ModalDownloadPremium"><%= t('layouts._header.download') %></button>
+                            <%= image_tag "users/default_image.png", style: "width: 180px; border-radius: 10px;", class: "img-fluid" %>
                           <% end %>
-                          <button type="button" class="btn btn-primary flex-grow-1" data-bs-dismiss="modal"><%= t('welcome.index.text29') %></button>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                          <h5 class="mb-1"><%= current_user.name.try(:empty?) ? current_user.email : [current_user.name,current_user.surname].map(&:to_s).join(' ')  %></h5>
+                          <p class="mb-2 pb-1" style="color: #2b2a2a;"><%= t('layouts._header.card_progress') %></p>
+                          <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+                            style="background-color: #efefef;">
+                            <div>
+                              <div>
+                                <p class="small text-muted mb-1"><%= t('layouts._header.undefined') %></p>
+                                <p class="mb-1"><%= hash["undefined"] %></p>
+                              </div>
+                              <div class="me-5">
+                                <p class="small text-muted mb-1"><%= t('layouts._header.very_bad') %></p>
+                                <p class="mb-1"><%= hash["very_bad"] %></p>
+                              </div>
+                              <div>
+                                <p class="small text-muted mb-1"><%= t('layouts._header.bad') %></p>
+                                <p class="mb-1"><%= hash["bad"] %></p>
+                              </div>
+                            </div>
+                            <div>
+                              <div>
+                                <p class="small text-muted mb-1"><%= t('layouts._header.good') %></p>
+                                <p class="mb-1"><%= hash["good"] %></p>
+                              </div>
+                              <div>
+                                <p class="small text-muted mb-1"><%= t('layouts._header.medium') %></p>
+                                <p class="mb-1"><%= hash["medium"] %></p>
+                              </div>
+                              <div>
+                                <p class="small text-muted mb-1"><%= t('layouts._header.perfect') %></p>
+                                <p class="mb-1"><%= hash["perfect"] %></p>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          <div class="d-flex pt-1">
+                            <% if user_signed_in? && current_user.account_type == 'standard' %>
+                              <button onclick='funcionForUpdateAccauntType()' type="button" class="btn btn-outline-primary me-1 flex-grow-1"><%= t('layouts._header.premium') %></button>
+                            <% else %>
+                              <button type="button" class="btn btn-outline-primary me-1 flex-grow-1" data-bs-toggle="modal" data-bs-target="#ModalDownloadPremium"><%= t('layouts._header.download') %></button>
+                            <% end %>
+                            <button type="button" class="btn btn-primary flex-grow-1" data-bs-dismiss="modal"><%= t('welcome.index.text29') %></button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -135,14 +136,13 @@
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
+        </div>
+        
       </div>
-      
     </div>
   </div>
-</div>
 <% end %>
 
 <div class="modal fade" id="ModalDownloadPremium" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">

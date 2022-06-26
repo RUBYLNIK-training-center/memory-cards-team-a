@@ -220,6 +220,8 @@ en:
     learn:
       learn_page: "Learning page"
       back: "Back"
+      question: "How well did I know it?"
+      level: "Current level of confidence: "
   enumerize:
     user:
       account_type: "Premium"
