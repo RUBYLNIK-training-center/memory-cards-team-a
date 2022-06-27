@@ -1,10 +1,8 @@
 require 'rails_helper'
+include ControllerHelpers
 
 RSpec.describe UsersController, type: :controller do
-  let(:user) do
-    User.create(email: 'test@example.com', name: 'Test', surname: 'Tester', password: '123456',
-                password_confirmation: '123456')
-  end
+  let(:user) {validUser}
 
   before do
     sign_in user

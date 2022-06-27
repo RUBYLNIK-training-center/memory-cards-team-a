@@ -1,10 +1,8 @@
 require 'rails_helper'
+include ControllerHelpers
 
 RSpec.describe 'CardImport' do
-  let(:user) do
-    User.create(email: 'test@example.com', name: 'Test', surname: 'Tester', password: '123456',
-                password_confirmation: '123456')
-  end
+  let(:user) {validUser}
 
   let(:file_path) { 'tmp/test.csv' }
   let!(:csv) do

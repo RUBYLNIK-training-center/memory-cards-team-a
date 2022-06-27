@@ -1,14 +1,12 @@
 require 'rails_helper'
+include ControllerHelpers
 
 RSpec.describe CardsController, type: :routing do
   let(:board) do
     Board.create(name: 'Anything', user_id: user.id)
   end
 
-  let(:user) do
-    User.create(email: 'test@example.com', name: 'Test', surname: 'Tester', password: '123456',
-                password_confirmation: '123456')
-  end
+  let(:user) {validUser}
 
   let(:card) do
     Card.create(question: 'Is it test?', answer: 'yep', board_id: board.id)
