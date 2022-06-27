@@ -383,6 +383,10 @@ GEM
     thor (1.2.1)
     tilt (2.0.10)
     trailblazer-option (0.1.2)
+    turbo-rails (1.1.1)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
@@ -434,6 +438,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-i18n
   redcarpet
+  redis (~> 4.0)
   rspec-rails (~> 5.0.0)
   rubocop-rails (>= 2.14.2)
   rubocop-rspec
@@ -442,12 +447,13 @@ DEPENDENCIES
   sidekiq (~> 6.5.0)
   simplecov
   spring
+  turbo-rails
   tzinfo-data
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.0.3p157
+   ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.32
+   2.3.13

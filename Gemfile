@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.3'
+ruby '3.0.0'
 
 gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
 gem 'pg', '~> 1.1'
@@ -27,7 +27,7 @@ gem "google-cloud-storage", "~> 1.8", require: false
 gem 'sidekiq', '~>6.5.0'
 gem 'enumerize'
 
-
+gem "turbo-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -50,3 +50,6 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Use Redis for Action Cable
+gem 'redis', '~> 4.0'
