@@ -25,6 +25,8 @@ en:
       forgot_your_password: "Forgot your password?"
       send_me_reset_password_instructions: "Send me reset password instructions"
       email: "Email"
+      recive_confirmation: "Didn't receive confirmation instructions?"
+      resend_confirmation: "Resend confirmation instructions"
     registrations:
       edit: "Edit User"
       update: "Update"

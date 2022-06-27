@@ -38,7 +38,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :google_dev
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -59,14 +59,14 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
-  # config.active_job.queue_adapter     = :resque
+  config.active_job.queue_adapter = :sidekiq
   # config.active_job.queue_name_prefix = "memory_card_team_a_production"
 
 
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'memory-card-team-a.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
 
 
@@ -74,7 +74,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'localhost',
+    domain:               'heroku.com',
     user_name:            'memory.card.team.a@gmail.com',
     password:             'qqsrcbbkpgcxnsce',
     authentication:       'plain',

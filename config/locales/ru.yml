@@ -25,6 +25,8 @@ ru:
       forgot_your_password: "Забыли пароль?"
       send_me_reset_password_instructions: "Выслать новый пароль"
       email: "Электронная почта"
+      recive_confirmation: "Не получили инструкции по подтверждению?"
+      resend_confirmation: "Повторная отправка инструкций по подтверждению"
     registrations:
       edit: "Редактирование Пользователя"
       update: "Обновить"
