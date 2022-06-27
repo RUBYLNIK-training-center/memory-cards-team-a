@@ -27,5 +27,6 @@ module MemoryCardTeamA
     config.generators.system_tests = nil
     config.exceptions_app = self.routes
     config.active_job.queue_adapter = :sidekiq
+    config.middleware.use Rack::Attack
   end
 end

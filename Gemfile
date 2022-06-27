@@ -27,7 +27,9 @@ gem "google-cloud-storage", "~> 1.8", require: false
 gem 'sidekiq', '~>6.5.0'
 gem 'enumerize'
 
-
+gem "rack-attack"
+gem "redis-rails"
+gem 'redis-rack-cache'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
