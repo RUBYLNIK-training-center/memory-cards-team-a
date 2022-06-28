@@ -8,6 +8,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable, 
          :omniauthable, omniauth_providers: %i[github google_oauth2]
   has_one_attached :avatar
+  scope :all_except, ->(user) { where.not(id: user) }
+  after_create_commit { broadcast_append_to 'users' }
+  has_many :messages
 
   validates :avatar, attached: false, content_type: [:png, :jpg, :jpeg], size: { between: 1.kilobyte..5.megabytes}
 

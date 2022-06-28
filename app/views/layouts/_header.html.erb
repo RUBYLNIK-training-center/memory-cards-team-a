@@ -30,6 +30,7 @@
         <% end %>
         <%= link_to t("layouts._header.signout"), destroy_user_session_path, method: :delete, class:"btn btn-outline-light me-2 ms-3" %>
         <%= link_to t("layouts._header.editprofile"), edit_user_registration_path, class:"btn btn-warning" %>
+        <%= link_to "Start Chatting", rooms_path ,class:"btn btn-outline-light" %>
         <% else %>
           <%= link_to t("layouts._header.signin"), new_user_session_path, class:"btn btn-outline-light me-2" %>
           <%= link_to t("layouts._header.signup"), new_user_registration_path, class:"btn btn-warning" %>
@@ -167,6 +168,66 @@
 </div>
 
 <style>
+    body {
+        overflow: hidden;
+    }
+    .msg-form {
+        width: 100%;
+        height: 56px;
+        padding: 10px;
+    }
+
+    #single_room {
+        height: calc(100vh - 150px);
+    }
+
+    #messages {
+        height: calc(100vh - 150px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    #room_container {
+        height: 100vh;
+        margin-right: 0px !important;
+    }
+
+    #side_panel {
+        height: 100vh;
+        margin-right: 0px !important;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin-bottom: 55px;
+    }
+    #chatroom_container {
+        height: 100vh;
+        margin-right: 0px !important;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    .msg-content {
+        width: 80%;
+        margin-right: 5px;
+    }
+    .message-box {
+        word-wrap: break-word;
+        width: fit-content;
+        max-width: 40%;
+        padding: 5px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background-color: #555555;
+        padding: 10px;
+    }
+  <%= ".msg-#{current_user&.id}" %> {
+      background-color: #007bff !important;
+      padding: 10px;
+  }
+  <%= ".cont-#{current_user&.id}" %> {
+      display: flex;
+      justify-content: flex-end
+  }
   .round {
     width: 40px;
     height: 40px;

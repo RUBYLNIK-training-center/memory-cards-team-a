@@ -27,7 +27,7 @@ gem "google-cloud-storage", "~> 1.8", require: false
 gem 'sidekiq', '~>6.5.0'
 gem 'enumerize'
 
-
+gem "turbo-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -50,3 +50,6 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Use Redis for Action Cable
+gem 'redis', '~> 4.0'

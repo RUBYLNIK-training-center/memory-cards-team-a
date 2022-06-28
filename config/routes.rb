@@ -14,6 +14,9 @@ Rails.application.routes.draw do
       resources :cards
       get '/learning', to: 'cards#learn'
     end
+    resources :rooms do
+      resources :messages
+    end
     devise_for :users, controllers: {registrations: 'registrations'},skip: [:omniauth_callbacks]
     devise_scope :user do
       get '/users/sign_out' => 'devise/sessions#destroy'
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
     get '/404', to: "errors#not_found"
     get '/422', to: "errors#unacceptable"
     get '/500', to: "errors#internal_error"
+    get 'user/:id', to: 'users#show', as: 'user'
     resource :user, only: [:edit] do
       collection do
         patch 'update_password'
